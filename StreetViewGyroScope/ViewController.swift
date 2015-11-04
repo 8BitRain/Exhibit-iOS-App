@@ -15,8 +15,8 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     var panoViewer: GMSPanoramaView?
     var headingNum = 180.0
     var prevheadingNum = 180.0
-    var pitchNum = 10.0
-    var prevPitchNum = 10.0
+    var pitchNum = -10.0
+    var prevPitchNum = -10.0
     var motionManager = CMMotionManager()
     //var offset = 1
     override func loadView() {
@@ -58,7 +58,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
                 print("Previous Pitch: " + String(format:"%f", self.prevPitchNum))
                 print("**********************")
                 
-                let cam = GMSPanoramaCamera(heading: self.headingNum , pitch: self.pitchNum, zoom: 1)
+                let cam = GMSPanoramaCamera(heading: -self.headingNum , pitch: -self.pitchNum, zoom: 1)
                 self.panoViewer?.animateToCamera(cam, animationDuration: 0.1)
             }
         
