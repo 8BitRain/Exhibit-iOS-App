@@ -15,6 +15,8 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     var panoViewer: GMSPanoramaView?
     var headingNum = 180.0
     var prevheadingNum = 180.0
+    var pitchNum = 10.0
+    var prevPitchNum = 10.0
     var motionManager = CMMotionManager()
     //var offset = 1
     override func loadView() {
@@ -36,17 +38,27 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         motionManager.gyroUpdateInterval = 0.2
         motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue()!,
             withHandler: {(gyroData: CMGyroData?, error: NSError?) -> Void in
-            //sprint(gyroData?.rotationRate.x)
-                
+           
+            //Set up heading Vars
             self.prevheadingNum = self.headingNum
-                
             var gyroX = (gyroData?.rotationRate.x)! * 10.0
-            
-                
             self.headingNum = self.headingNum + gyroX
+                
+            //Set up Rotation Vars
+            self.prevPitchNum = self.pitchNum
+            var gyroY = (gyroData?.rotationRate.y)! * 10.0
+            self.pitchNum = self.pitchNum + gyroY
+                
             //Figure out the exact value here
             if(fabs(self.headingNum - self.prevheadingNum) > 0.1){
-                let cam = GMSPanoramaCamera(heading: self.headingNum , pitch: 10, zoom: 1)
+                print("Gyro DATA: ")
+                print("HeadingNum: " + String(format: "%f", self.headingNum))
+                print("Previous Heading Num: " + String(format: "%f", self.prevheadingNum))
+                print("Pitch: " + String(format: "%f", self.pitchNum))
+                print("Previous Pitch: " + String(format:"%f", self.prevPitchNum))
+                print("**********************")
+                
+                let cam = GMSPanoramaCamera(heading: self.headingNum , pitch: self.pitchNum, zoom: 1)
                 self.panoViewer?.animateToCamera(cam, animationDuration: 0.1)
             }
         
