@@ -14,6 +14,7 @@
 		DC6D42C81BF004AB00202E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6D42C61BF004AB00202E98 /* LaunchScreen.storyboard */; };
 		DC6D42D31BF004AB00202E98 /* mainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D42D21BF004AB00202E98 /* mainTests.swift */; };
 		DC6D42DE1BF004AC00202E98 /* mainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D42DD1BF004AC00202E98 /* mainUITests.swift */; };
+		DC6D42EC1BF0095100202E98 /* floorplan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC6D42EB1BF0095100202E98 /* floorplan.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		DC6D42D91BF004AC00202E98 /* mainUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mainUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6D42DD1BF004AC00202E98 /* mainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainUITests.swift; sourceTree = "<group>"; };
 		DC6D42DF1BF004AC00202E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6D42EB1BF0095100202E98 /* floorplan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = floorplan.jpg; path = ../../app_images/floorplan.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				DC6D42C41BF004AB00202E98 /* Assets.xcassets */,
 				DC6D42C61BF004AB00202E98 /* LaunchScreen.storyboard */,
 				DC6D42C91BF004AB00202E98 /* Info.plist */,
+				DC6D42EB1BF0095100202E98 /* floorplan.jpg */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6D42C81BF004AB00202E98 /* LaunchScreen.storyboard in Resources */,
+				DC6D42EC1BF0095100202E98 /* floorplan.jpg in Resources */,
 				DC6D42C51BF004AB00202E98 /* Assets.xcassets in Resources */,
 				DC6D42C31BF004AB00202E98 /* Main.storyboard in Resources */,
 			);

@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,12 +17,93 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcf-Ii-h1q">
+                                <rect key="frame" x="258" y="282" width="84" height="36"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Floorplan"/>
+                                <connections>
+                                    <segue destination="FYx-De-Zd5" kind="show" id="LvU-Rw-vVh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDZ-5J-Zn5">
+                                <rect key="frame" x="258" y="78" width="85" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WDZ-5J-Zn5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XmX-ZL-fL9"/>
+                            <constraint firstItem="kcf-Ii-h1q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mkv-Dw-LV7"/>
+                            <constraint firstItem="kcf-Ii-h1q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tDA-1a-bhE"/>
+                            <constraint firstItem="WDZ-5J-Zn5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="tx1-u6-ryT"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="346" y="339"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VVM-lN-cxa">
+            <objects>
+                <viewController id="FYx-De-Zd5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wc8-BY-cMi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vfz-wt-2kE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QZ0-QZ-8ud">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="floorplan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZRN-Gn-b2O">
+                                <rect key="frame" x="30" y="0.0" width="540" height="600"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZRN-Gn-b2O" secondAttribute="height" multiplier="9:10" id="WKq-48-Fug"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-FH-BM1">
+                                <rect key="frame" x="383" y="352" width="109" height="42"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.22161431819999999" green="0.33860266169999997" blue="0.68321198729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="9O7-Im-H6G"/>
+                                    <constraint firstAttribute="width" secondItem="Y1h-FH-BM1" secondAttribute="height" multiplier="109:42" id="bYl-Dc-o4N"/>
+                                </constraints>
+                                <state key="normal" title="Living Room">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZRN-Gn-b2O" firstAttribute="leading" secondItem="QZ0-QZ-8ud" secondAttribute="leadingMargin" constant="10" id="4zu-As-xwI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZRN-Gn-b2O" secondAttribute="trailing" constant="10" id="KQF-aQ-rj1"/>
+                            <constraint firstItem="Y1h-FH-BM1" firstAttribute="leading" secondItem="ZRN-Gn-b2O" secondAttribute="trailing" constant="-187" id="bau-f0-FV6"/>
+                            <constraint firstItem="ZRN-Gn-b2O" firstAttribute="centerX" secondItem="QZ0-QZ-8ud" secondAttribute="centerX" id="cGU-cI-RMc"/>
+                            <constraint firstItem="ZRN-Gn-b2O" firstAttribute="centerY" secondItem="QZ0-QZ-8ud" secondAttribute="centerY" id="gRA-EI-BVl"/>
+                            <constraint firstItem="Y1h-FH-BM1" firstAttribute="top" secondItem="ZRN-Gn-b2O" secondAttribute="bottom" constant="-248" id="kp1-nA-byR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i67-nv-HhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088" y="339"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="floorplan.jpg" width="800" height="600"/>
+    </resources>
 </document>
