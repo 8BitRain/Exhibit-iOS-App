@@ -28,9 +28,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDZ-5J-Zn5">
-                                <rect key="frame" x="258" y="78" width="85" height="21"/>
+                                <rect key="frame" x="241" y="78" width="119" height="29"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -62,39 +62,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="floorplan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZRN-Gn-b2O">
-                                <rect key="frame" x="30" y="0.0" width="540" height="600"/>
+                                <rect key="frame" x="40" y="98" width="520" height="404"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ZRN-Gn-b2O" secondAttribute="height" multiplier="9:10" id="WKq-48-Fug"/>
+                                    <constraint firstAttribute="width" secondItem="ZRN-Gn-b2O" secondAttribute="height" multiplier="9:7" id="WKq-48-Fug"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-FH-BM1">
-                                <rect key="frame" x="383" y="352" width="109" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC9-T4-x1U">
+                                <rect key="frame" x="220" y="277" width="161" height="46"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.22161431819999999" green="0.33860266169999997" blue="0.68321198729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="109" id="9O7-Im-H6G"/>
-                                    <constraint firstAttribute="width" secondItem="Y1h-FH-BM1" secondAttribute="height" multiplier="109:42" id="bYl-Dc-o4N"/>
+                                    <constraint firstAttribute="width" secondItem="lC9-T4-x1U" secondAttribute="height" multiplier="7:2" id="7VS-Nc-PPK"/>
+                                    <constraint firstAttribute="width" constant="161" id="u9s-Nu-rHs"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Living Room">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun-filled Room for Orcs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kss-i9-t9W">
+                                <rect key="frame" x="40" y="496" width="234" height="26"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59N-mE-MQT">
+                                <rect key="frame" x="40" y="530" width="520" height="102"/>
+                                <animations/>
+                                <string key="text">I have an app that incorporates many round rect buttons. However, in xcode 5, those dont exist. How do I get the round rect buttons back? They are essential to my app. Now it just is pressable text. What do I do? I am planning on releasing this app later, if that is relevant.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </button>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZRN-Gn-b2O" firstAttribute="leading" secondItem="QZ0-QZ-8ud" secondAttribute="leadingMargin" constant="10" id="4zu-As-xwI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZRN-Gn-b2O" secondAttribute="trailing" constant="10" id="KQF-aQ-rj1"/>
-                            <constraint firstItem="Y1h-FH-BM1" firstAttribute="leading" secondItem="ZRN-Gn-b2O" secondAttribute="trailing" constant="-187" id="bau-f0-FV6"/>
+                            <constraint firstItem="lC9-T4-x1U" firstAttribute="centerX" secondItem="ZRN-Gn-b2O" secondAttribute="centerX" id="2BZ-jQ-z3r"/>
+                            <constraint firstItem="ZRN-Gn-b2O" firstAttribute="leading" secondItem="QZ0-QZ-8ud" secondAttribute="leadingMargin" constant="20" id="4zu-As-xwI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="59N-mE-MQT" secondAttribute="trailing" constant="20" id="5Lh-g5-Y8H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZRN-Gn-b2O" secondAttribute="trailing" constant="20" id="KQF-aQ-rj1"/>
+                            <constraint firstItem="59N-mE-MQT" firstAttribute="leading" secondItem="QZ0-QZ-8ud" secondAttribute="leadingMargin" constant="20" id="L4x-Qw-Yd6"/>
+                            <constraint firstItem="Kss-i9-t9W" firstAttribute="leading" secondItem="QZ0-QZ-8ud" secondAttribute="leadingMargin" constant="20" id="cA9-x3-cLI"/>
                             <constraint firstItem="ZRN-Gn-b2O" firstAttribute="centerX" secondItem="QZ0-QZ-8ud" secondAttribute="centerX" id="cGU-cI-RMc"/>
                             <constraint firstItem="ZRN-Gn-b2O" firstAttribute="centerY" secondItem="QZ0-QZ-8ud" secondAttribute="centerY" id="gRA-EI-BVl"/>
-                            <constraint firstItem="Y1h-FH-BM1" firstAttribute="top" secondItem="ZRN-Gn-b2O" secondAttribute="bottom" constant="-248" id="kp1-nA-byR"/>
+                            <constraint firstItem="lC9-T4-x1U" firstAttribute="centerY" secondItem="ZRN-Gn-b2O" secondAttribute="centerY" id="hTM-qU-RRL"/>
+                            <constraint firstItem="Kss-i9-t9W" firstAttribute="top" secondItem="ZRN-Gn-b2O" secondAttribute="bottom" constant="-6" id="wOF-Ci-Jwy"/>
+                            <constraint firstItem="59N-mE-MQT" firstAttribute="top" secondItem="Kss-i9-t9W" secondAttribute="bottom" constant="8" id="yG4-fS-cYZ"/>
                         </constraints>
                     </view>
                 </viewController>
