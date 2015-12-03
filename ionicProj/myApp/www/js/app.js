@@ -159,19 +159,19 @@ angular.module('starter', ['ionic'])
     light.position.set(0, 0, 0);
     scene.add(light);
 
-    // creating a sphere
-    /*var sphere = new THREE.Mesh(
+    //creating a sphere
+    var sphere = new THREE.Mesh(
     new THREE.SphereGeometry(128, 128, 64),
     new THREE.MeshPhongMaterial({
         map: THREE.ImageUtils.loadTexture('img/textures/PANO_20150404_132909.jpg')
-    })*/
-      /* new THREE.MeshBasicMaterial({ 
-           map: videoTexture, overdraw: true,   
-           side:THREE.DoubleSide })*/
-    //);
-        //sphere.position.set(5, 100, 0);
-    /*sphere.position.set(0,0,0);
-    sphere.scale.x = -1;*/
+    })
+
+    );
+    //sphere.position.set(5, 100, 0);
+    sphere.position.set(0,0,0);
+    sphere.scale.x = -1;
+    scene.add(sphere);
+        
         
         
         ///////////
@@ -183,8 +183,8 @@ angular.module('starter', ['ionic'])
 	// video.id = 'video';
 	// video.type = ' video/ogg; codecs="theora, vorbis" ';
 	video.src = "js/bike.mp4";
-	video.load(); // must call after setting/changing source
-	video.play();
+	//video.load(); // must call after setting/changing source
+	//video.play();
 	
 	// alternative method -- 
 	// create DIV in HTML:
@@ -216,7 +216,7 @@ angular.module('starter', ['ionic'])
 	var movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
 	movieScreen.position.set(0,50,0);
     movieScreen.scale.x = -1;
-	scene.add(movieScreen);
+	//scene.add(movieScreen);
     
         // LIGHT
 	var light = new THREE.PointLight(0xffffff);
@@ -303,7 +303,7 @@ angular.module('starter', ['ionic'])
 
     function render(dt) {
       effect.render(scene, camera);
-        videoImageContext.drawImage( video, 0, 0 );
+        //videoImageContext.drawImage( video, 0, 0 );
 		if ( videoTexture ) 
 			videoTexture.needsUpdate = true;
     }
