@@ -17,6 +17,8 @@ angular.module('starter', ['ionic'])
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
     }
+      
+      
 
     ionic.Platform.fullScreen();
     if (window.StatusBar) {
@@ -75,6 +77,7 @@ angular.module('starter', ['ionic'])
         particleRotationDeg = 0,
         lastColorRange = [0, 0.3],
         currentColorRange = [0, 0.3],
+         video, videoImage, videoImageContext, videoTexture;
 
         // City and weather API set up
         cities = [['Sydney', '2147714'], ['New York', '5128638'], ['Tokyo', '1850147'], ['London', '2643743'], ['Mexico City', '3530597'], ['Miami', '4164138'], ['San Francisco', '5391959'], ['Rome', '3169070']],
@@ -89,8 +92,9 @@ angular.module('starter', ['ionic'])
     function init() {
       scene = new THREE.Scene();
       //Was 90 for first value and .001 for second value
-      camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 700);
-      camera.position.set(0, 25, 0);
+      camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+      //camera.position.set(0, 50, 0);
+        camera.position.set(0, 0, 0);
         
       scene.add(camera);
       
@@ -106,7 +110,7 @@ angular.module('starter', ['ionic'])
       // Our initial control fallback with mouse/touch events in case DeviceOrientation is not enabled
       controls = new THREE.OrbitControls(camera, element);
       controls.target.set(
-        camera.position.x + 0.15,
+        camera.position.x + 0.000001,
         camera.position.y,
         camera.position.z
       );
@@ -133,10 +137,10 @@ angular.module('starter', ['ionic'])
       // Lighting
         
         var newlight = new THREE.SpotLight(0xffffff);
-newlight.position.set( -150, 150, 150 );
+        newlight.position.set( -150, 150, 150 );
 
-var pointLight = new THREE.PointLight( 0xffffff);
-pointLight.position.set( -50, 50, 50 );
+        var pointLight = new THREE.PointLight( 0xffffff);
+        pointLight.position.set( -50, 50, 50 );
 
         scene.add(newlight);
         scene.add(pointLight);
@@ -151,32 +155,77 @@ pointLight.position.set( -50, 50, 50 );
     var ambient = new THREE.AmbientLight( 0xffffff);
     scene.add( ambient ); 
     
-    var light = new THREE.PointLight(0x999999, 2, 100);
-    light.position.set(50, 50, 50);
+    var light = new THREE.PointLight(0xFFFFFF, 2, 100);
+    light.position.set(0, 0, 0);
     scene.add(light);
 
-      /*var lightScene = new THREE.PointLight(0x999999, 2, 100);
-      lightScene.position.set(0, 5, 0);
-      scene.add(lightScene);
-        
-    var lightMoreScene = new THREE.PointLight(0x999999, 2, 100);
-      lightMoreScene.position.set(100, 100, 100);
-      scene.add(lightMoreScene);*/
-
-    
-        // creating a sphere
-      var sphere = new THREE.Mesh(
-      new THREE.SphereGeometry(100, 64, 64),
+    // creating a sphere
+    /*var sphere = new THREE.Mesh(
+    new THREE.SphereGeometry(128, 128, 64),
     new THREE.MeshPhongMaterial({
-        map: THREE.ImageUtils.loadTexture('img/textures/panorama.jpg')
-    })
-    );
-      sphere.position.set(5, 100, 0);
-    sphere.scale.x = -1;
-      scene.add(sphere);
-       
-
+        map: THREE.ImageUtils.loadTexture('img/textures/PANO_20150404_132909.jpg')
+    })*/
+      /* new THREE.MeshBasicMaterial({ 
+           map: videoTexture, overdraw: true,   
+           side:THREE.DoubleSide })*/
+    //);
+        //sphere.position.set(5, 100, 0);
+    /*sphere.position.set(0,0,0);
+    sphere.scale.x = -1;*/
         
+        
+        ///////////
+	// VIDEO //
+	///////////
+	
+	// create the video element
+	video = document.createElement( 'video' );
+	// video.id = 'video';
+	// video.type = ' video/ogg; codecs="theora, vorbis" ';
+	video.src = "js/bike.mp4";
+	video.load(); // must call after setting/changing source
+	video.play();
+	
+	// alternative method -- 
+	// create DIV in HTML:
+	// <video id="myVideo" autoplay style="display:none">
+	//		<source src="videos/sintel.ogv" type='video/ogg; codecs="theora, vorbis"'>
+	// </video>
+	// and set JS variable:
+	// video = document.getElementById( 'myVideo' );
+	
+	videoImage = document.createElement( 'canvas' );
+	videoImage.width = 3840;
+	videoImage.height = 2160;
+
+	videoImageContext = videoImage.getContext( '2d' );
+	// background color if no video present
+	videoImageContext.fillStyle = '#000000';
+	videoImageContext.fillRect( 0, 0, videoImage.width, videoImage.height );
+
+	videoTexture = new THREE.Texture( videoImage );
+	videoTexture.minFilter = THREE.LinearFilter;
+	videoTexture.magFilter = THREE.LinearFilter;
+	
+	var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side:THREE.DoubleSide } );
+	// the geometry on which the movie will be displayed;
+	// 		movie image will be scaled to fit these dimensions.
+	var movieGeometry = new THREE.PlaneGeometry( 240, 100, 4, 4 );
+    var movieGeometry = new THREE.SphereGeometry(360, 360,360);
+    
+	var movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
+	movieScreen.position.set(0,50,0);
+    movieScreen.scale.x = -1;
+	scene.add(movieScreen);
+    
+        // LIGHT
+	var light = new THREE.PointLight(0xffffff);
+	light.position.set(0,250,0);
+	scene.add(light);
+	
+	camera.position.set(0,0,0);
+	camera.lookAt(movieScreen.position)
+               
       var floorTexture = THREE.ImageUtils.loadTexture('img/textures/wood.jpg');
       floorTexture.wrapS = THREE.RepeatWrapping;
       floorTexture.wrapT = THREE.RepeatWrapping;
@@ -195,7 +244,7 @@ pointLight.position.set( -50, 50, 50 );
 
       var floor = new THREE.Mesh(geometry, floorMaterial);
       floor.rotation.x = -Math.PI / 2;
-      scene.add(floor);
+      //scene.add(floor);
 
       var particleTexture = THREE.ImageUtils.loadTexture('img/textures/particle.png'),
           spriteMaterial = new THREE.SpriteMaterial({
@@ -224,104 +273,8 @@ pointLight.position.set( -50, 50, 50 );
 
       animate();
     }
-
-    function adjustToWeatherConditions() {
-      var cityIDs = '';
-      for (var i = 0; i < cities.length; i++) {
-        cityIDs += cities[i][1];
-        if (i != cities.length - 1) cityIDs += ',';
-      }
-      getURL('http://api.openweathermap.org/data/2.5/group?id=' + cityIDs + '&APPID=b5c0b505a8746a1b2cc6b17cdab34535', function(info) {
-        cityWeather = info.list;
-
-        lookupTimezones(0, cityWeather.length);
-      });
-    }
-
-    function lookupTimezones(t, len) {
-      var tz = new TimeZoneDB;
-
-      tz.getJSON({
-          key: "GPH4A5Q6NGI1",
-          lat: cityWeather[t].coord.lat,
-          lng: cityWeather[t].coord.lon
-      }, function(timeZone){
-          cityTimes.push(new Date(timeZone.timestamp * 1000));
-
-          t++;
-          if (t < len) lookupTimezones(t, len);
-          else applyWeatherConditions();
-      });
-    }
-
-    function applyWeatherConditions() {
-      displayCurrentCityName(cities[currentCity][0]);
-
-      var info = cityWeather[currentCity];
-
-      particleRotationSpeed = info.wind.speed / 2; // dividing by 2 just to slow things down
-      particleRotationDeg = info.wind.deg;
-
-      var timeThere = cityTimes[currentCity] ? cityTimes[currentCity].getUTCHours() : 0,
-          isDay = timeThere >= 6 && timeThere <= 18;
-
-      if (isDay) {
-        switch (info.weather[0].main) {
-          case 'Clouds':
-            currentColorRange = [0, 0.01];
-            break;
-          case 'Rain':
-            currentColorRange = [0.7, 0.1];
-            break;
-          case 'Clear':
-          default:
-            currentColorRange = [0.6, 0.7];
-            break;
-        }
-      } else {
-        currentColorRange = [0.69, 0.6];
-      }
-
-      if (currentCity < cities.length-1) currentCity++;
-      else currentCity = 0;
-
-      setTimeout(applyWeatherConditions, 5000);
-    }
-
-    function displayCurrentCityName(name) {
-      scene.remove(currentCityTextMesh);
-
-      currentCityText = new THREE.TextGeometry(name, {
-        size: 4,
-        height: 1
-      });
-      currentCityTextMesh = new THREE.Mesh(currentCityText, new THREE.MeshBasicMaterial({
-        color: 0xffffff, opacity: 1
-      }));
-
-      currentCityTextMesh.position.y = 10;
-      currentCityTextMesh.position.z = 20;
-      currentCityTextMesh.rotation.x = 0;
-      currentCityTextMesh.rotation.y = -180;
-
-      scene.add(currentCityTextMesh);
-    }
       
     function animate() {
-      var elapsedSeconds = clock.getElapsedTime(),
-          particleRotationDirection = particleRotationDeg <= 180 ? -1 : 1;
-
-      particles.rotation.y = elapsedSeconds * particleRotationSpeed * particleRotationDirection;
-
-      // We check if the color range has changed, if so, we'll change the colours
-      if (lastColorRange[0] != currentColorRange[0] && lastColorRange[1] != currentColorRange[1]) {
-
-        for (var i = 0; i < totalParticles; i++) {
-          particles.children[i].material.color.setHSL(currentColorRange[0], currentColorRange[1], (Math.random() * (0.7 - 0.2) + 0.2));
-        }
-
-        lastColorRange = currentColorRange;
-      }
 
       requestAnimationFrame(animate);
 
@@ -350,6 +303,9 @@ pointLight.position.set( -50, 50, 50 );
 
     function render(dt) {
       effect.render(scene, camera);
+        videoImageContext.drawImage( video, 0, 0 );
+		if ( videoTexture ) 
+			videoTexture.needsUpdate = true;
     }
 
     function fullscreen() {
