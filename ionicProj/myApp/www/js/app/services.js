@@ -5,7 +5,7 @@ angular.module('app.services', [])
           return {
 
             //Will query parse for Exhibits
-            queryExhibits: function () {
+            queryExhibits: function (callback) {
               var ExhibitList = Parse.Object.extend("Exhibits");
               var query = new Parse.Query(ExhibitList);
               query.find({
@@ -20,6 +20,7 @@ angular.module('app.services', [])
                   for (var i = 0; i < results.length; i++) {
                     var object = results[i];
 
+                    var objectID = object.id;
                     var title = object.get('title');
                     var address = object.get('address');
                     var location = object.get('location');
@@ -31,13 +32,15 @@ angular.module('app.services', [])
                     var price = object.get('price');
                     var sqft = object.get('sqft');
 
-                    var exhibit = {title:title, address:address, location:location,
+                    var exhibit = {objectID: objectID, title:title, address:address, location:location,
                                   thumbnail:thumbnail, sphere:sphere, beds:beds, baths:baths,
                                   pets:pets, price:price, sqft: sqft};
 
                     //Add to list of exhibits
                     listOfExhibits.push(exhibit);
                   }
+                  console.log("Calling back...");
+                  callback(listOfExhibits);
                 },
                 error: function(error) {
                   alert("Error: " + error.code + " " + error.message);
