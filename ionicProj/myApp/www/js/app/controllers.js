@@ -15,9 +15,7 @@ angular.module('app.controllers', [])
         '$state', '$scope', 'UserService','AppService',   // <-- controller dependencies
         function ($state, $scope, UserService, AppService) {
 
-            $scope.dataList = ["One", "Two", "Three", "Four"];
-
-
+            $scope.dataList = [];
 
             $scope.doLogoutAction = function () {
                 console.log("Logging out...");
@@ -37,7 +35,10 @@ angular.module('app.controllers', [])
                 AppService.queryExhibits(function(exhibits) {
                 	console.log("callback called!");
                   var listOfExhibits = exhibits;
-                  console.log(listOfExhibits);
+                  for(i = 0; i < listOfExhibits.length; i++){
+                        console.log(listOfExhibits[i]);
+                        $scope.dataList.push(listOfExhibits[i]);
+                  }
                 });
             };
 
