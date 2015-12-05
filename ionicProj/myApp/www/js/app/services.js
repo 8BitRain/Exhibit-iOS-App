@@ -10,7 +10,7 @@ angular.module('app.services', [])
               var query = new Parse.Query(UserList);
               query.find({
                 success: function(results) {
-                  alert("Successfully retrieved " + results.length + " users.");
+                  console.log("Successfully retrieved " + results.length + " users.");
                   // Do something with the returned Parse.Object values
                   for (var i = 0; i < results.length; i++) {
                     var object = results[i];

@@ -14,7 +14,7 @@ angular.module('user.services', [])
                  */
                 init: function () {
 
-                    debugger;
+                    // debugger;
                     // if initialized, then return the activeUser
                     if (parseInitialized === false) {
                         Parse.initialize(ParseConfiguration.applicationId, ParseConfiguration.javascriptKey);
