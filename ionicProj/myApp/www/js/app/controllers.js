@@ -33,7 +33,7 @@ angular.module('app.controllers', [])
 
             //Called when user wants to refresh list
             $scope.refreshList = function () {
-                AppService.queryExhibits();
+                var listOfExhibits = AppService.queryExhibits();
             };
 
         }])
