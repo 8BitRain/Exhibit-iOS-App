@@ -11,9 +11,14 @@
     </ion-nav-buttons>
     <ion-content>
         <ion-list can-swipe="true">
-            <ion-item class="item item-thumbnail-left" ng-repeat="data in dataList" type="item-text-wrap"
+            <ion-item ng-repeat="data in dataList" class="item item-thumbnail-left" type="item-text-wrap"
                       href="#/tab/list/{{$index}}">
-                <pre>{{data | json}}</pre>
+                <img src="{{data.thumbnail._url}}" alt="preview">
+                <h2>{{data.title}}</h2>
+                <h3>{{data.address}}</h3>
+                <h3>Beds: {{data.beds}}, Baths: {{data.baths}}</h3>
+                <p></p>
+                <!--<pre>{{data | json}}</pre>-->
                 <ion-option-button class="button-assertive" ng-click="doDeleteRow(data.id)">
                     DELETE
                 </ion-option-button>

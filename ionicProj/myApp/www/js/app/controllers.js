@@ -37,8 +37,9 @@ angular.module('app.controllers', [])
                   var listOfExhibits = exhibits;
                   for(i = 0; i < listOfExhibits.length; i++){
                         console.log(listOfExhibits[i]);
-                        $scope.dataList.push(listOfExhibits[i]);
+                        //$scope.dataList.push(listOfExhibits[i]);
                   }
+                  $scope.dataList = exhibits;
                 });
             };
 
