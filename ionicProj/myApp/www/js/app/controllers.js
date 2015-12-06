@@ -20,16 +20,9 @@ angular.module('app.controllers', [])
 
             $scope.dataList = ['one'];
 
-            //$scope.getImage = function(){
-                //AppService.queryExhibits(function(exhibits) {
-                //    console.log("callback called!");
-                //    $scope.dataList = exhibits;
-                    console.log($scope.dataList);
-                    console.log($state.params.itemId);
-                    $scope.photoSphere = $state.params.itemId;
-                //});
-
-            //}
+            console.log($scope.dataList);
+            console.log($state.params.itemId);
+            $scope.photoSphere = $state.params.itemId;
             
 
             $scope.doLogoutAction = function () {
@@ -52,6 +45,23 @@ angular.module('app.controllers', [])
                     $scope.$broadcast('scroll.refreshComplete');
                 });
             };
+
+            $scope.getUrlAtIndex = function() {
+                AppService.queryExhibits(function(exhibits) {
+                    console.log("callback called!");
+                    $scope.dataList = exhibits;
+                    console.log(exhibits[0].baths);
+                    return exhibits[0].baths;
+                });
+            }
+
+            $scope.test = function() {
+                return 5;
+            }
+
+            console.log("test returned " + $scope.test()); 
+            console.log("object returned " + $scope.getUrlAtIndex()); 
+
 
         }])
     .controller('AccountCtrl', [
