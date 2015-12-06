@@ -8,14 +8,29 @@ angular.module('app.controllers', [])
         '$state', '$scope', '$stateParams', 'UserService',   // <-- controller dependencies
         function ($state, $scope, $stateParams, UserService) {
 
-            $scope.index = $stateParams.itemId;
+            $scope.index = $scope.dataList[0];
+            //$stateParams.itemId;
+            
 
         }])
     .controller('ListCtrl', [
         '$state', '$scope', 'UserService','AppService',   // <-- controller dependencies
         function ($state, $scope, UserService, AppService) {
 
-            $scope.dataList = [];
+
+            $scope.dataList = ['one'];
+
+            //$scope.getImage = function(){
+                //AppService.queryExhibits(function(exhibits) {
+                //    console.log("callback called!");
+                //    $scope.dataList = exhibits;
+                    console.log($scope.dataList);
+                    console.log($state.params.itemId);
+                    $scope.photoSphere = $state.params.itemId;
+                //});
+
+            //}
+            
 
             $scope.doLogoutAction = function () {
                 console.log("Logging out...");
@@ -31,15 +46,9 @@ angular.module('app.controllers', [])
 
             //Called when user wants to refresh list
             $scope.refreshList = function () {
-                // var listOfExhibits = AppService.queryExhibits();
                 AppService.queryExhibits(function(exhibits) {
                 	console.log("callback called!");
-                  var listOfExhibits = exhibits;
-                  for(i = 0; i < listOfExhibits.length; i++){
-                        console.log(listOfExhibits[i]);
-                        //$scope.dataList.push(listOfExhibits[i]);
-                  }
-                  $scope.dataList = exhibits;
+                    $scope.dataList = exhibits;
                 });
             };
 

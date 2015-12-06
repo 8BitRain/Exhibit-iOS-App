@@ -20,6 +20,7 @@ angular.module('starter',
  *
  * parse constants
  */
+
     .value('ParseConfiguration', {
         applicationId: "OmsGMVVEXlyeH7ogBUCxYBYrhTxskALiSyUI3NQ4",
         javascriptKey: "IxFoJ67sWnY97WVgFPSpesiXhccPLWEdrCs3EMuj"
@@ -77,7 +78,7 @@ angular.module('starter',
                 views: {
                     'tab-list': {
                         templateUrl: 'templates/cardboardView.html',
-                        controller: 'ListDetailCtrl'
+                        controller: 'ListCtrl'
                     }
                 }
             })
@@ -131,12 +132,16 @@ angular.module('starter',
 
   return {
     restrict: 'E',
+    scope: {
+       sphereUrl: '=sphere'
+    },
     link: function($scope, $element, $attr) {
-      create($element[0]);
+      create($element[0], $scope.sphereUrl);
     }
   }
 
-  function create(glFrame) {
+
+  function create(glFrame, sphere) {
     var scene,
         camera,
         renderer,
@@ -165,6 +170,8 @@ angular.module('starter',
         currentCityTextMesh = new THREE.Mesh();
 
     init();
+
+    console.log(sphere)
 
     function init() {
       scene = new THREE.Scene();
@@ -222,26 +229,26 @@ angular.module('starter',
         scene.add(newlight);
         scene.add(pointLight);
     
-    var directionalLight = new THREE.DirectionalLight( 0xffffff );
-    directionalLight.position.set( 0, 50, 0 ).normalize();
-    scene.add( directionalLight );
-        
-    var secondDirectionalLight = new THREE.DirectionalLight (0xffffff);
-    secondDirectionalLight.position.set(0,0,0).normalize();
-    
-    var ambient = new THREE.AmbientLight( 0xffffff);
-    scene.add( ambient ); 
-    
-    var light = new THREE.PointLight(0xFFFFFF, 2, 100);
-    light.position.set(0, 0, 0);
-    scene.add(light);
+      var directionalLight = new THREE.DirectionalLight( 0xffffff );
+      directionalLight.position.set( 0, 50, 0 ).normalize();
+      scene.add( directionalLight );
+          
+      var secondDirectionalLight = new THREE.DirectionalLight (0xffffff);
+      secondDirectionalLight.position.set(0,0,0).normalize();
+      
+      var ambient = new THREE.AmbientLight( 0xffffff);
+      scene.add( ambient ); 
+      
+      var light = new THREE.PointLight(0xFFFFFF, 2, 100);
+      light.position.set(0, 0, 0);
+      scene.add(light);
 
-    //creating a sphere
-    var sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(128, 128, 64),
-    new THREE.MeshPhongMaterial({
-        map: THREE.ImageUtils.loadTexture('img/textures/PANO_20150404_132909.jpg')
-    })
+      //creating a sphere
+      var sphere = new THREE.Mesh(
+      new THREE.SphereGeometry(128, 128, 64),
+      new THREE.MeshPhongMaterial({
+          map: THREE.ImageUtils.loadTexture('img/textures/wood.jpg')
+      })
 
     );
     //sphere.position.set(5, 100, 0);
@@ -259,7 +266,7 @@ angular.module('starter',
     video = document.createElement( 'video' );
     // video.id = 'video';
     // video.type = ' video/ogg; codecs="theora, vorbis" ';
-    video.src = "js/bike.mp4";
+    //video.src = "js/bike.mp4";
     //video.load(); // must call after setting/changing source
     //video.play();
     
