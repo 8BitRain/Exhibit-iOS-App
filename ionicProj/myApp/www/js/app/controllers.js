@@ -18,7 +18,7 @@ angular.module('app.controllers', [])
         function ($state, $scope, UserService, AppService) {
 
 
-            $scope.dataList = ['one'];
+            //$scope.dataList = ['one'];
 
             console.log($scope.dataList);
             console.log($state.params.itemId);
@@ -47,20 +47,23 @@ angular.module('app.controllers', [])
             };
 
             $scope.getUrlAtIndex = function() {
+                console.log("at top of function")
                 AppService.queryExhibits(function(exhibits) {
                     console.log("callback called!");
                     $scope.dataList = exhibits;
-                    console.log(exhibits[0].baths);
-                    return exhibits[0].baths;
+                    console.log("inside AppService: " + exhibits[0]);
+                    return exhibits[0];
                 });
+                console.log("at bottom of function")
             }
 
             $scope.test = function() {
+                console.log("inside test: " + 5);
                 return 5;
             }
 
             console.log("test returned " + $scope.test()); 
-            console.log("object returned " + $scope.getUrlAtIndex()); 
+            console.log("function returned " + $scope.getUrlAtIndex()); 
 
 
         }])
