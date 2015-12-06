@@ -49,6 +49,7 @@ angular.module('app.controllers', [])
                 AppService.queryExhibits(function(exhibits) {
                 	console.log("callback called!");
                     $scope.dataList = exhibits;
+                    $scope.$broadcast('scroll.refreshComplete');
                 });
             };
 
