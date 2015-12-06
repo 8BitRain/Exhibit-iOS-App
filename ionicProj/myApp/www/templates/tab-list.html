@@ -16,9 +16,9 @@
                       href="#/tab/list/{{$index}}">
                 <img src="{{data.thumbnail._url}}" alt="preview">
                 <h2>{{data.address}}</h2>
-                <h3>{{data.title}}</h3>
-                <h3>Beds: {{data.beds}}, Baths: {{data.baths}}</h3>
-                <p></p>
+                <h3>${{data.price}}</h3>
+                <h4>{{data.sqft}} sqft, Beds: {{data.beds}}, Baths: {{data.baths}}</h4>
+                <p>{{data.title}}</p>
                 <!--<pre>{{data | json}}</pre>
                 <ion-option-button class="button-assertive" ng-click="doDeleteRow(data.id)">
                     DELETE

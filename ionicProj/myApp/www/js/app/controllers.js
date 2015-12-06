@@ -51,7 +51,7 @@ angular.module('app.controllers', [])
                 AppService.queryExhibits(function(exhibits) {
                     console.log("callback called!");
                     $scope.dataList = exhibits;
-                    console.log("inside AppService: " + exhibits[0]);
+                    console.log(exhibits[0]);
                     return exhibits[0];
                 });
                 console.log("at bottom of function")
