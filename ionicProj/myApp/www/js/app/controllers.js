@@ -8,14 +8,21 @@ angular.module('app.controllers', [])
         '$state', '$scope', '$stateParams', 'UserService',   // <-- controller dependencies
         function ($state, $scope, $stateParams, UserService) {
 
-            $scope.index = $stateParams.itemId;
+            $scope.index = $scope.dataList[0];
+            //$stateParams.itemId;
+            
 
         }])
     .controller('ListCtrl', [
-        '$state', '$scope', 'UserService','AppService',   // <-- controller dependencies
-        function ($state, $scope, UserService, AppService) {
+        '$state', '$scope', 'UserService','AppService', 'DataService',  // <-- controller dependencies
+        function ($state, $scope, UserService, AppService, DataService) {
 
-            $scope.dataList = [];
+
+            if(DataService.getData()[0]){
+                $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
+            }
+            
+            
 
             $scope.doLogoutAction = function () {
                 console.log("Logging out...");
@@ -31,15 +38,11 @@ angular.module('app.controllers', [])
 
             //Called when user wants to refresh list
             $scope.refreshList = function () {
-                // var listOfExhibits = AppService.queryExhibits();
                 AppService.queryExhibits(function(exhibits) {
                 	console.log("callback called!");
-                  var listOfExhibits = exhibits;
-                  for(i = 0; i < listOfExhibits.length; i++){
-                        console.log(listOfExhibits[i]);
-                        //$scope.dataList.push(listOfExhibits[i]);
-                  }
-                  $scope.dataList = exhibits;
+                    $scope.dataList = exhibits;
+                    DataService.setData(exhibits);
+                    $scope.$broadcast('scroll.refreshComplete');
                 });
             };
             
@@ -52,6 +55,18 @@ angular.module('app.controllers', [])
             $scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('landscape');
             });
+
+            $scope.getUrlAtIndex = function() {
+                console.log("at top of function")
+                AppService.queryExhibits(function(exhibits) {
+                    console.log("callback called!");
+                    $scope.dataList = exhibits;
+                    console.log(exhibits[0]);
+                    return exhibits[0];
+                });
+                console.log("at bottom of function")
+            }
+
 
         }])
     .controller('AccountCtrl', [

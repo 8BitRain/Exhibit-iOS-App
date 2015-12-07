@@ -10,18 +10,19 @@
         </button>
     </ion-nav-buttons>
     <ion-content>
+    <ion-refresher on-refresh="refreshList()"></ion-refresher>
         <ion-list can-swipe="true">
             <ion-item ng-repeat="data in dataList" class="item item-thumbnail-left" type="item-text-wrap"
                       href="#/tab/list/{{$index}}" ng-click="changeOriantationLandspace()">
                 <img src="{{data.thumbnail._url}}" alt="preview">
-                <h2>{{data.title}}</h2>
-                <h3>{{data.address}}</h3>
-                <h3>Beds: {{data.beds}}, Baths: {{data.baths}}</h3>
-                <p></p>
-                <!--<pre>{{data | json}}</pre>-->
+                <h2>{{data.address}}</h2>
+                <h3>${{data.price}}</h3>
+                <h4>{{data.sqft}} sqft, Beds: {{data.beds}}, Baths: {{data.baths}}</h4>
+                <p>{{data.title}}</p>
+                <!--<pre>{{data | json}}</pre>
                 <ion-option-button class="button-assertive" ng-click="doDeleteRow(data.id)">
                     DELETE
-                </ion-option-button>
+                </ion-option-button>-->
             </ion-item>
         </ion-list>
     </ion-content>
