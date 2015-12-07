@@ -14,15 +14,18 @@ angular.module('app.controllers', [])
 
         }])
     .controller('ListCtrl', [
-        '$state', '$scope', 'UserService','AppService',   // <-- controller dependencies
-        function ($state, $scope, UserService, AppService) {
+        '$state', '$scope', 'UserService','AppService', 'DataService',  // <-- controller dependencies
+        function ($state, $scope, UserService, AppService, DataService) {
 
 
             //$scope.dataList = ['one'];
 
-            console.log($scope.dataList);
-            console.log($state.params.itemId);
-            $scope.photoSphere = $state.params.itemId;
+            //console.log(DataService.getData());
+            //console.log($state.params.itemId);
+            if(DataService.getData()[0]){
+                $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
+            }
+            
             
 
             $scope.doLogoutAction = function () {
@@ -42,6 +45,7 @@ angular.module('app.controllers', [])
                 AppService.queryExhibits(function(exhibits) {
                 	console.log("callback called!");
                     $scope.dataList = exhibits;
+                    DataService.setData(exhibits);
                     $scope.$broadcast('scroll.refreshComplete');
                 });
             };
@@ -56,14 +60,6 @@ angular.module('app.controllers', [])
                 });
                 console.log("at bottom of function")
             }
-
-            $scope.test = function() {
-                console.log("inside test: " + 5);
-                return 5;
-            }
-
-            console.log("test returned " + $scope.test()); 
-            console.log("function returned " + $scope.getUrlAtIndex()); 
 
 
         }])

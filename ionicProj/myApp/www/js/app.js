@@ -73,6 +73,7 @@ angular.module('starter',
                     }
                 }
             })
+
             .state('tab.list-detail', {
                 url: '/list/:itemId',
                 views: {
@@ -141,7 +142,7 @@ angular.module('starter',
   }
 
 
-  function create(glFrame, sphere) {
+  function create(glFrame, sphereUrl) {
     var scene,
         camera,
         renderer,
@@ -171,7 +172,8 @@ angular.module('starter',
 
     init();
 
-    console.log(sphere)
+    console.log(sphereUrl);
+
 
     function init() {
       scene = new THREE.Scene();
@@ -244,10 +246,12 @@ angular.module('starter',
       scene.add(light);
 
       //creating a sphere
+
+      var urlSplit = sphereUrl.split('/');
       var sphere = new THREE.Mesh(
       new THREE.SphereGeometry(128, 128, 64),
       new THREE.MeshPhongMaterial({
-          map: THREE.ImageUtils.loadTexture('img/textures/wood.jpg')
+          map: THREE.ImageUtils.loadTexture(urlSplit[urlSplit.length - 1])
       })
 
     );
