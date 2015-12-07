@@ -42,6 +42,16 @@ angular.module('app.controllers', [])
                   $scope.dataList = exhibits;
                 });
             };
+            
+            $scope.changeOriantationLandspace = function() {
+                screen.lockOrientation('landscape');
+                console.log("Called this function");
+                
+        }
+            
+            $scope.$on('$ionicView.beforeEnter', function(){
+                screen.lockOrientation('landscape');
+            });
 
         }])
     .controller('AccountCtrl', [

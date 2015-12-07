@@ -12,7 +12,7 @@
     <ion-content>
         <ion-list can-swipe="true">
             <ion-item ng-repeat="data in dataList" class="item item-thumbnail-left" type="item-text-wrap"
-                      href="#/tab/list/{{$index}}">
+                      href="#/tab/list/{{$index}}" ng-click="changeOriantationLandspace()">
                 <img src="{{data.thumbnail._url}}" alt="preview">
                 <h2>{{data.title}}</h2>
                 <h3>{{data.address}}</h3>
