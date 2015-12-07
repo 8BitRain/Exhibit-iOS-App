@@ -18,10 +18,6 @@ angular.module('app.controllers', [])
         function ($state, $scope, UserService, AppService, DataService) {
 
 
-            //$scope.dataList = ['one'];
-
-            //console.log(DataService.getData());
-            //console.log($state.params.itemId);
             if(DataService.getData()[0]){
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
             }

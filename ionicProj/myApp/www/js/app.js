@@ -251,7 +251,8 @@ angular.module('starter',
       var sphere = new THREE.Mesh(
       new THREE.SphereGeometry(128, 128, 64),
       new THREE.MeshPhongMaterial({
-          map: THREE.ImageUtils.loadTexture(urlSplit[urlSplit.length - 1])
+          //map: THREE.ImageUtils.loadTexture(urlSplit[urlSplit.length - 1])
+          map: THREE.ImageUtils.loadTexture(urlSplit)
       })
 
     );
