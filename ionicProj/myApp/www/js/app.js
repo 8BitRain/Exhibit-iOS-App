@@ -134,15 +134,17 @@ angular.module('starter',
   return {
     restrict: 'E',
     scope: {
-       sphereUrl: '=sphere'
+       sphereUrl: '=sphere',
+       picture: '=isPic'
     },
     link: function($scope, $element, $attr) {
       create($element[0], $scope.sphereUrl);
+      create($element[0], $scope.picture);
     }
   }
 
 
-  function create(glFrame, sphereUrl) {
+  function create(glFrame, sphereUrl, picture) {
     var scene,
         camera,
         renderer,
@@ -171,6 +173,12 @@ angular.module('starter',
         currentCityTextMesh = new THREE.Mesh();
 
     init();
+    
+      if(picture == true){
+        console.log("This item is a picture");
+      }
+      console.log("isPicture value: " + picture);
+      
 
     console.log(sphereUrl);
 
@@ -247,8 +255,8 @@ angular.module('starter',
 
       //creating a sphere
 
-      var urlSplit = sphereUrl.split('/');
-      var sphere = new THREE.Mesh(
+      //var urlSplit = sphereUrl.split('/');
+      /*var sphere = new THREE.Mesh(
       new THREE.SphereGeometry(128, 128, 64),
       new THREE.MeshPhongMaterial({
           //map: THREE.ImageUtils.loadTexture(urlSplit[urlSplit.length - 1])
@@ -261,7 +269,7 @@ angular.module('starter',
     sphere.scale.x = -1;
     scene.add(sphere);
         
-        
+        */
         
         ///////////
     // VIDEO //

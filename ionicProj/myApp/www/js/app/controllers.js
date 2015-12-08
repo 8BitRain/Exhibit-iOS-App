@@ -22,7 +22,9 @@ angular.module('app.controllers', [])
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
             }
             
-            
+               if(DataService.getData()[0]){
+                $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
+            }
 
             $scope.doLogoutAction = function () {
                 console.log("Logging out...");
@@ -75,6 +77,11 @@ angular.module('app.controllers', [])
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
             }
             
+              if(DataService.getData()[0]){
+                $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
+                  console.log(DataService.getData()[$state.params.itemId].isPicture);
+            }
+            console.log("Testing for call " + DataService.getData()[$state.params.itemId].isPicture);
             $scope.changeOriantationLandspace = function() {
                 screen.lockOrientation('landscape');
                 console.log("Called this function");
