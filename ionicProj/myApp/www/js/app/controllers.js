@@ -69,8 +69,7 @@ angular.module('app.controllers', [])
 
 
         }])
-<<<<<<< HEAD
-=======
+
 
     .controller('CardboardCtrl', [
         '$state', '$scope', 'UserService','AppService', 'DataService',  // <-- controller dependencies
@@ -92,7 +91,6 @@ angular.module('app.controllers', [])
             });
 
         }])
->>>>>>> seperate-CardboardView-Controller
     .controller('AccountCtrl', [
         '$state', '$scope', 'UserService',   // <-- controller dependencies
         function ($state, $scope, UserService) {
