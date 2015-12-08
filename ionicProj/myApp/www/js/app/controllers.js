@@ -40,6 +40,7 @@ angular.module('app.controllers', [])
             $scope.refreshList = function () {
                 AppService.queryExhibits(function(exhibits) {
                 	console.log("callback called!");
+                    console.log(exhibits);
                     $scope.dataList = exhibits;
                     DataService.setData(exhibits);
                     $scope.$broadcast('scroll.refreshComplete');
