@@ -46,14 +46,9 @@ angular.module('app.controllers', [])
                 });
             };
             
-            $scope.changeOriantationLandspace = function() {
-                screen.lockOrientation('landscape');
-                console.log("Called this function");
-                
-        }
             
             $scope.$on('$ionicView.beforeEnter', function(){
-                screen.lockOrientation('landscape');
+                screen.lockOrientation('portrait');
             });
 
             $scope.getUrlAtIndex = function() {
@@ -94,6 +89,10 @@ angular.module('app.controllers', [])
     .controller('AccountCtrl', [
         '$state', '$scope', 'UserService',   // <-- controller dependencies
         function ($state, $scope, UserService) {
+            
+                $scope.$on('$ionicView.beforeEnter', function(){
+                screen.lockOrientation('portrait');
+            });
 
             debugger;
             UserService.currentUser().then(function (_user) {
