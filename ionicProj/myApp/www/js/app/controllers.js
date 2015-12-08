@@ -17,11 +17,7 @@ angular.module('app.controllers', [])
         '$state', '$scope', 'UserService','AppService', 'DataService',  // <-- controller dependencies
         function ($state, $scope, UserService, AppService, DataService) {
 
-            
-               $scope.$on('$ionicView.beforeEnter', function(){
-                screen.lockOrientation('portrait');
-            });
-            
+
             if(DataService.getData()[0]){
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
             }
@@ -50,6 +46,15 @@ angular.module('app.controllers', [])
                 });
             };
             
+            $scope.changeOriantationLandspace = function() {
+                screen.lockOrientation('landscape');
+                console.log("Called this function");
+                
+        }
+            
+            $scope.$on('$ionicView.beforeEnter', function(){
+                screen.lockOrientation('landscape');
+            });
 
             $scope.getUrlAtIndex = function() {
                 console.log("at top of function")
@@ -64,34 +69,9 @@ angular.module('app.controllers', [])
 
 
         }])
-
-    .controller('CardboardCtrl', [
-        '$state', '$scope', 'UserService','AppService', 'DataService',  // <-- controller dependencies
-        function ($state, $scope, UserService, AppService, DataService) {
-
-
-            if(DataService.getData()[0]){
-                $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
-            }*
-            
-            $scope.changeOriantationLandspace = function() {
-                screen.lockOrientation('landscape');
-                console.log("Called this function");
-                
-        }
-            
-            $scope.$on('$ionicView.beforeEnter', function(){
-                screen.lockOrientation('landscape');
-            });
-
-        }])
     .controller('AccountCtrl', [
         '$state', '$scope', 'UserService',   // <-- controller dependencies
         function ($state, $scope, UserService) {
-            
-             $scope.$on('$ionicView.beforeEnter', function(){
-                screen.lockOrientation('portrait');
-            });
 
             debugger;
             UserService.currentUser().then(function (_user) {
