@@ -69,6 +69,30 @@ angular.module('app.controllers', [])
 
 
         }])
+<<<<<<< HEAD
+=======
+
+    .controller('CardboardCtrl', [
+        '$state', '$scope', 'UserService','AppService', 'DataService',  // <-- controller dependencies
+        function ($state, $scope, UserService, AppService, DataService) {
+
+
+            if(DataService.getData()[0]){
+                $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
+            }
+            
+            $scope.changeOriantationLandspace = function() {
+                screen.lockOrientation('landscape');
+                console.log("Called this function");
+                
+        }
+            
+            $scope.$on('$ionicView.beforeEnter', function(){
+                screen.lockOrientation('landscape');
+            });
+
+        }])
+>>>>>>> seperate-CardboardView-Controller
     .controller('AccountCtrl', [
         '$state', '$scope', 'UserService',   // <-- controller dependencies
         function ($state, $scope, UserService) {
