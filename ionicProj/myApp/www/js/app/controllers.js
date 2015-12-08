@@ -72,7 +72,7 @@ angular.module('app.controllers', [])
 
             if(DataService.getData()[0]){
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
-            }*
+            }
             
             $scope.changeOriantationLandspace = function() {
                 screen.lockOrientation('landscape');
