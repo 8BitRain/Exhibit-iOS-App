@@ -79,7 +79,7 @@ angular.module('starter',
                 views: {
                     'tab-list': {
                         templateUrl: 'templates/cardboardView.html',
-                        controller: 'ListCtrl'
+                        controller: 'CardboardCtrl'
                     }
                 }
             })
