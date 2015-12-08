@@ -40,6 +40,7 @@ angular.module('app.services', [])
                     var location = object.get('location');
                     var thumbnail = object.get('thumbnail');
                     var sphere = object.get('sphere');
+                    var isPicture = object.get('isPicture');
                     var beds = object.get('beds');
                     var baths = object.get('baths');
                     var pets = object.get('pets');
@@ -47,8 +48,8 @@ angular.module('app.services', [])
                     var sqft = object.get('sqft');
 
                     var exhibit = {objectID: objectID, title:title, address:address, location:location,
-                                  thumbnail:thumbnail, sphere:sphere, beds:beds, baths:baths,
-                                  pets:pets, price:price, sqft: sqft};
+                                  thumbnail:thumbnail, sphere:sphere, isPicture: isPicture, beds:beds, 
+                                  baths:baths, pets:pets, price:price, sqft: sqft};
 
                     //Add to list of exhibits
                     listOfExhibits.push(exhibit);
