@@ -79,7 +79,7 @@ angular.module('starter',
                 views: {
                     'tab-list': {
                         templateUrl: 'templates/cardboardView.html',
-                        controller: 'ListCtrl'
+                        controller: 'CardboardCtrl'
                     }
                 }
             })
@@ -248,6 +248,7 @@ angular.module('starter',
       //creating a sphere
 
       var urlSplit = sphereUrl.split('/');
+          THREE.ImageUtils.crossOrigin = '';
       var sphere = new THREE.Mesh(
       new THREE.SphereGeometry(128, 128, 64),
       new THREE.MeshPhongMaterial({
