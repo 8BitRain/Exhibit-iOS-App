@@ -49,9 +49,9 @@ angular.module('app.controllers', [])
             };
             
             
-            $scope.$on('$ionicView.beforeEnter', function(){
+            /*$scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('portrait');
-            });
+            });*/
 
             $scope.getUrlAtIndex = function() {
                 console.log("at top of function")
@@ -79,27 +79,24 @@ angular.module('app.controllers', [])
             
               if(DataService.getData()[0]){
                 $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
-                  console.log(DataService.getData()[$state.params.itemId].isPicture);
             }
-            console.log("Testing for call " + DataService.getData()[$state.params.itemId].isPicture);
-            $scope.changeOriantationLandspace = function() {
-                screen.lockOrientation('landscape');
-                console.log("Called this function");
-                
-        }
-            
+
             $scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('landscape');
             });
+            
+            $scope.$on('$ionicView.beforeLeave', function(){
+                screen.lockOrientation('portrait');
+            })
 
         }])
     .controller('AccountCtrl', [
         '$state', '$scope', 'UserService',   // <-- controller dependencies
         function ($state, $scope, UserService) {
             
-                $scope.$on('$ionicView.beforeEnter', function(){
+                /*$scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('portrait');
-            });
+            });*/
 
             debugger;
             UserService.currentUser().then(function (_user) {

@@ -135,16 +135,15 @@ angular.module('starter',
     restrict: 'E',
     scope: {
        sphereUrl: '=sphere',
-       picture: '=isPic'
+       isPhoto: '=photo'
     },
     link: function($scope, $element, $attr) {
-      create($element[0], $scope.sphereUrl);
-      create($element[0], $scope.picture);
+      create($element[0], $scope.sphereUrl, $scope.isPhoto);
     }
   }
 
 
-  function create(glFrame, sphereUrl, picture) {
+  function create(glFrame, sphereUrl, isPhoto) {
     var scene,
         camera,
         renderer,
@@ -174,10 +173,10 @@ angular.module('starter',
 
     init();
     
-      if(picture == true){
+      if(isPhoto == true){
         console.log("This item is a picture");
       }
-      console.log("isPicture value: " + picture);
+      console.log("isPicture value: " + isPhoto);
       
 
     console.log(sphereUrl);
@@ -256,22 +255,21 @@ angular.module('starter',
       //creating a sphere
 
       //var urlSplit = sphereUrl.split('/');
-      /*var sphere = new THREE.Mesh(
-      new THREE.SphereGeometry(128, 128, 64),
-      new THREE.MeshPhongMaterial({
+      if(isPhoto){
+        var sphere = new THREE.Mesh(
+        new THREE.SphereGeometry(128, 128, 64),
+        new THREE.MeshPhongMaterial({
           //map: THREE.ImageUtils.loadTexture(urlSplit[urlSplit.length - 1])
-          map: THREE.ImageUtils.loadTexture(sphereUrl)
-      })
-
-    );
-    //sphere.position.set(5, 100, 0);
-    sphere.position.set(0,0,0);
-    sphere.scale.x = -1;
-    scene.add(sphere);
-        
-        */
-        
-        ///////////
+        map: THREE.ImageUtils.loadTexture(sphereUrl)
+        })
+        );
+        //sphere.position.set(5, 100, 0);
+        sphere.position.set(0,0,0);
+        sphere.scale.x = -1;
+        scene.add(sphere); 
+      } 
+    else {
+      ///////////
     // VIDEO //
     ///////////
     
@@ -279,17 +277,10 @@ angular.module('starter',
     video = document.createElement( 'video' );
     // video.id = 'video';
     // video.type = ' video/ogg; codecs="theora, vorbis" ';
-    //video.src = "js/bike.mp4";
-    //video.load(); // must call after setting/changing source
-    //video.play();
-    
-    // alternative method -- 
-    // create DIV in HTML:
-    // <video id="myVideo" autoplay style="display:none">
-    //      <source src="videos/sintel.ogv" type='video/ogg; codecs="theora, vorbis"'>
-    // </video>
-    // and set JS variable:
-    // video = document.getElementById( 'myVideo' );
+    video.src = sphereUrl;
+    video.setAttribute('webkit-playsinline', 'webkit-playsinline');
+    video.load(); // must call after setting/changing source
+   
     
     videoImage = document.createElement( 'canvas' );
     videoImage.width = 3840;
@@ -310,10 +301,21 @@ angular.module('starter',
     var movieGeometry = new THREE.PlaneGeometry( 240, 100, 4, 4 );
     var movieGeometry = new THREE.SphereGeometry(360, 360,360);
     
-    var movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
+    var movieScreen = new THREE.Mesh( 
+        movieGeometry, 
+        movieMaterial );
+          
     movieScreen.position.set(0,50,0);
     movieScreen.scale.x = -1;
-    //scene.add(movieScreen);
+    scene.add(movieScreen);
+        
+    video.play();
+      
+    }
+ 
+        
+        
+    
     
         // LIGHT
     var light = new THREE.PointLight(0xffffff);
@@ -321,7 +323,7 @@ angular.module('starter',
     scene.add(light);
     
     camera.position.set(0,0,0);
-    camera.lookAt(movieScreen.position)
+    //camera.lookAt(movieScreen.position)
                
       var floorTexture = THREE.ImageUtils.loadTexture('img/textures/wood.jpg');
       floorTexture.wrapS = THREE.RepeatWrapping;
@@ -394,13 +396,14 @@ angular.module('starter',
       resize();
 
       camera.updateProjectionMatrix();
-
       controls.update(dt);
     }
 
     function render(dt) {
       effect.render(scene, camera);
-        //videoImageContext.drawImage( video, 0, 0 );
+        if(!isPhoto){
+            videoImageContext.drawImage( video, 0, 0 );
+        }
         if ( videoTexture ) 
             videoTexture.needsUpdate = true;
     }
