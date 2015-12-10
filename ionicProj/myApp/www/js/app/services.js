@@ -1,3 +1,4 @@
+
 angular.module('app.services', [])
 
     .service('DataService', [ function () {
@@ -46,10 +47,12 @@ angular.module('app.services', [])
                     var pets = object.get('pets');
                     var price = object.get('price');
                     var sqft = object.get('sqft');
+                    var city = object.get('city');
+                    var zip = object.get('zip');
 
                     var exhibit = {objectID: objectID, title:title, address:address, location:location,
                                   thumbnail:thumbnail, sphere:sphere, isPicture: isPicture, beds:beds, 
-                                  baths:baths, pets:pets, price:price, sqft: sqft};
+                                  baths:baths, pets:pets, price:price, sqft: sqft, city: city, zip: zip};
 
                     //Add to list of exhibits
                     listOfExhibits.push(exhibit);
