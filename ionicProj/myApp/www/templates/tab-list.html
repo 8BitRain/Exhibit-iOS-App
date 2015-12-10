@@ -12,7 +12,7 @@
     <ion-content>
     <ion-refresher on-refresh="refreshList()"></ion-refresher>
         <ion-list can-swipe="true">
-            <ion-item ng-repeat="data in dataList" class="item item-thumbnail-left" type="item-text-wrap"
+            <ion-item ng-repeat="data in dataList" class="item item-thumbnail-left item-text-wrap"
                       href="#/tab/list/{{$index}}" >
                 <img src="{{data.thumbnail._url}}" alt="preview">
                 <h2>{{data.address}}</h2>

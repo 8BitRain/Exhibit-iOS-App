@@ -1,7 +1,13 @@
 <ion-view title="Account Settings">
     <ion-content class="padding">
-        <ion-item>
-            <pre>{{user | json}}</pre>
-        </ion-item>
+        <ion-item class="item item-thumbnail-left item-text-wrap" >
+    		<img src="https://cms.springbranchisd.com/portals/29/placeholder-person.png" alt="User">
+    		<h2>Username: {{user._serverData.username}}</h2>
+            <h3>First name: {{user._serverData.first_name}}</h3>
+            <h3>Last name: {{user._serverData.last_name}}</h3>
+            <h3>Email: {{user._serverData.email}}</h3>
+            <p>Created: {{user.createdAt}}</p>
+            <p>Updated: {{user.updatedAt}}</p>
+            </ion-item>
     </ion-content>
 </ion-view>
