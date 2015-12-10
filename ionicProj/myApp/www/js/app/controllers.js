@@ -22,7 +22,9 @@ angular.module('app.controllers', [])
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
             }
             
-            
+               if(DataService.getData()[0]){
+                $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
+            }
 
             $scope.doLogoutAction = function () {
                 console.log("Logging out...");
@@ -48,9 +50,9 @@ angular.module('app.controllers', [])
             };
             
             
-            $scope.$on('$ionicView.beforeEnter', function(){
+            /*$scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('portrait');
-            });
+            });*/
 
             $scope.getUrlAtIndex = function() {
                 console.log("at top of function")
@@ -76,24 +78,26 @@ angular.module('app.controllers', [])
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
             }
             
-            $scope.changeOriantationLandspace = function() {
-                screen.lockOrientation('landscape');
-                console.log("Called this function");
-                
-        }
-            
+              if(DataService.getData()[0]){
+                $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
+            }
+
             $scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('landscape');
             });
+            
+            $scope.$on('$ionicView.beforeLeave', function(){
+                screen.lockOrientation('portrait');
+            })
 
         }])
     .controller('AccountCtrl', [
         '$state', '$scope', 'UserService',   // <-- controller dependencies
         function ($state, $scope, UserService) {
             
-                $scope.$on('$ionicView.beforeEnter', function(){
+                /*$scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('portrait');
-            });
+            });*/
 
             debugger;
             UserService.currentUser().then(function (_user) {
