@@ -17,7 +17,7 @@ strong {
 }
 
 a, a:hover, a:focus {
-	color: #FF6065;
+	color: #fff;
 	text-decoration: none;
     -o-transition: all .3s;
     -moz-transition: all .3s;
@@ -122,7 +122,7 @@ img { max-width: 100%; }
 	height: 52px;
     margin:20px;
     padding: 0 20px;
-	background: #FF797E;
+	background: #282b35;
     font-size: 18px;
     line-height: 48px;
     color: #fff;
@@ -227,7 +227,7 @@ color: #888;
     margin: 0;
     padding: 0;
     vertical-align: middle;
-    background: #FF6065;
+    background: #5b9ca1;
     border: 0;
     font-family: 'Dosis', sans-serif;
     font-size: 18px;
@@ -920,7 +920,7 @@ color: #888;
 }
 
 .product-text p {
-	margin-top: 30px;
+	margin: 100px 0px 100px 0px;
 	padding: 0 60px;
     font-size: 15px;
     line-height: 24px;
@@ -1485,7 +1485,7 @@ color: #FF6065;
 	text-align: center;
     font-size: 36px;
     line-height: 76px;
-    color: #FF6065;
+    color: #282b35;
 	padding: 5px;
     -o-transition: all .3s;
     -moz-transition: all .3s;
