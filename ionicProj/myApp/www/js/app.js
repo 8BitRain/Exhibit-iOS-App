@@ -163,15 +163,8 @@ angular.module('starter',
         currentColorRange = [0, 0.3],
          video, videoImage, videoImageContext, videoTexture;
 
-        // City and weather API set up
-        cities = [['Sydney', '2147714'], ['New York', '5128638'], ['Tokyo', '1850147'], ['London', '2643743'], ['Mexico City', '3530597'], ['Miami', '4164138'], ['San Francisco', '5391959'], ['Rome', '3169070']],
-        cityWeather = {},
-        cityTimes = [],
-        currentCity = 0,
-        currentCityText = new THREE.TextGeometry(),
-        currentCityTextMesh = new THREE.Mesh();
 
-    init();
+      init();
     
       if(isPhoto == true){
         console.log("This item is a picture");
@@ -277,6 +270,7 @@ angular.module('starter',
     video = document.createElement( 'video' );
     // video.id = 'video';
     // video.type = ' video/ogg; codecs="theora, vorbis" ';
+    video.id = 'video';
     video.src = sphereUrl;
     video.setAttribute('webkit-playsinline', 'webkit-playsinline');
     video.load(); // must call after setting/changing source
@@ -288,7 +282,7 @@ angular.module('starter',
 
     videoImageContext = videoImage.getContext( '2d' );
     // background color if no video present
-    videoImageContext.fillStyle = '#000000';
+    videoImageContext.fillStyle = '#FFFFFF';
     videoImageContext.fillRect( 0, 0, videoImage.width, videoImage.height );
 
     videoTexture = new THREE.Texture( videoImage );
@@ -298,7 +292,6 @@ angular.module('starter',
     var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side:THREE.DoubleSide } );
     // the geometry on which the movie will be displayed;
     //      movie image will be scaled to fit these dimensions.
-    var movieGeometry = new THREE.PlaneGeometry( 240, 100, 4, 4 );
     var movieGeometry = new THREE.SphereGeometry(360, 360,360);
     
     var movieScreen = new THREE.Mesh( 
@@ -325,7 +318,7 @@ angular.module('starter',
     camera.position.set(0,0,0);
     //camera.lookAt(movieScreen.position)
                
-      var floorTexture = THREE.ImageUtils.loadTexture('img/textures/wood.jpg');
+      /*var floorTexture = THREE.ImageUtils.loadTexture('img/textures/wood.jpg');
       floorTexture.wrapS = THREE.RepeatWrapping;
       floorTexture.wrapT = THREE.RepeatWrapping;
       floorTexture.repeat = new THREE.Vector2(50, 50);
@@ -363,7 +356,7 @@ angular.module('starter',
         particles.add(sprite);
       }
       particles.position.y = 70;
-      //scene.add(particles);
+      //scene.add(particles);*/
      
 
       //adjustToWeatherConditions();

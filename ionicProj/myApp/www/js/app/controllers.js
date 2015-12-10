@@ -37,6 +37,14 @@ angular.module('app.controllers', [])
                     alert("error logging in " + _error.debug);
                 })
             };
+            
+            if(document.getElementById("video") != null){
+                document.getElementById("video").remove();
+                console.log("Removed video");
+            } else{
+                console.log("Video was not removed");
+            }
+
 
             //Called when user wants to refresh list
             $scope.refreshList = function () {
