@@ -1,6 +1,7 @@
 # Exhibit
 
-Exhibit explores the new and exciting virtual reality
+Exhibit is a cross-platform mobile application that
+explores the new and exciting virtual reality
 experience of viewing homes, apartments and new properties.
 With a few swipes, users can navigate an intuitive search
 feature and instantly find themselves standing in the room
