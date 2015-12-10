@@ -1,4 +1,4 @@
-# Exhibit-iOS-App
+# Exhibit
 
 Exhibit explores the new and exciting virtual reality
 experience of viewing homes, apartments and new properties.
