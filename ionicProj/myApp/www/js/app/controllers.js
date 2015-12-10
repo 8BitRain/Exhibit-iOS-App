@@ -22,7 +22,7 @@ angular.module('app.controllers', [])
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
             }
             
-               if(DataService.getData()[0]){
+            if(DataService.getData()[0]){
                 $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
             }
 
@@ -54,16 +54,7 @@ angular.module('app.controllers', [])
                 screen.lockOrientation('portrait');
             });*/
 
-            $scope.getUrlAtIndex = function() {
-                console.log("at top of function")
-                AppService.queryExhibits(function(exhibits) {
-                    console.log("callback called!");
-                    $scope.dataList = exhibits;
-                    console.log(exhibits[0]);
-                    return exhibits[0];
-                });
-                console.log("at bottom of function")
-            }
+
 
 
         }])
@@ -99,9 +90,10 @@ angular.module('app.controllers', [])
                 screen.lockOrientation('portrait');
             });*/
 
-            debugger;
+            //debugger;
             UserService.currentUser().then(function (_user) {
                 $scope.user = _user;
+                console.log($scope.user);
             });
 
 
