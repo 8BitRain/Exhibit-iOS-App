@@ -1,0 +1,18 @@
+<ion-view title="ITEM DETAIL">
+
+    <ion-header-bar>
+      <div class="buttons">
+      	<button class="button button-clear" ng-click="goBack()">Back
+      	</button>
+      </div>
+      <h1 class="title">Cardboard</h1>
+      <div class="buttons">
+        <button class="button button-clear" ng-click="openSettings()">
+        <i class="icon ion-gear-a"></i></button>
+      </div>
+    </ion-header-bar>
+    <ion-content scroll="false" padding="false">
+      <cardboard-gl sphere="photoSphere" photo="isPhoto"></cardboard-gl>
+    </ion-content>
+</ion-view>
+
