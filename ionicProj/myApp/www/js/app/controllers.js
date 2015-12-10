@@ -14,55 +14,65 @@ angular.module('app.controllers', [])
 
         }])
     .controller('ListCtrl', [
-        '$state', '$scope', 'UserService','AppService', 'DataService',  // <-- controller dependencies
-        function ($state, $scope, UserService, AppService, DataService) {
+        '$state', '$scope', '$ionicModal', 'UserService','AppService', 'DataService',  // <-- controller dependencies
+        function ($state, $scope, $ionicModal, UserService, AppService, DataService) {
+
+        $scope.search = {};
+
+          $ionicModal.fromTemplateUrl('search-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+          }).then(function(modal) {
+            $scope.modal = modal
+            console.log("I'm here!")
+          })  
 
 
-            if(DataService.getData()[0]){
-                $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
-            }
-            
-            if(DataService.getData()[0]){
-                $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
-            }
 
-            $scope.doLogoutAction = function () {
-                console.log("Logging out...");
-                UserService.logout().then(function () {
-
-                    // transition to next state
-                    $state.go('app-login');
-
-                }, function (_error) {
-                    alert("error logging in " + _error.debug);
-                })
-            };
-            
-            if(document.getElementById("video") != null){
-                document.getElementById("video").remove();
-                console.log("Removed video");
-            } else{
-                console.log("Video was not removed");
-            }
+        if(DataService.getData()[0]){
+            $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
+        }
+        
+        if(DataService.getData()[0]){
+            $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
+        }
+        
+        if(document.getElementById("video") != null){
+            document.getElementById("video").remove();
+            console.log("Removed video");
+        } else{
+            console.log("Video was not removed");
+        }
 
 
-            //Called when user wants to refresh list
-            $scope.refreshList = function () {
-                AppService.queryExhibits(function(exhibits) {
-                	console.log("callback called!");
-                    console.log(exhibits);
-                    $scope.dataList = exhibits;
-                    DataService.setData(exhibits);
-                    $scope.$broadcast('scroll.refreshComplete');
-                });
-            };
-            
-            
-            /*$scope.$on('$ionicView.beforeEnter', function(){
-                screen.lockOrientation('portrait');
-            });*/
+        //Called when user wants to refresh list
+        $scope.refreshList = function () {
+            AppService.queryExhibits(function(exhibits) {
+            	console.log("callback called!");
+                console.log(exhibits);
+                $scope.dataList = exhibits;
+                DataService.setData(exhibits);
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        };
+        
+        
+        /*$scope.$on('$ionicView.beforeEnter', function(){
+            screen.lockOrientation('portrait');
+        });*/
 
 
+          $scope.openModal = function() {
+            $scope.modal.show()
+          }
+
+          $scope.closeModal = function() {
+            $scope.modal.hide();
+          };
+
+          $scope.$on('$destroy', function() {
+            $scope.modal.remove();
+          });
 
 
         }])
@@ -103,6 +113,19 @@ angular.module('app.controllers', [])
                 $scope.user = _user;
                 console.log($scope.user);
             });
+
+            
+        $scope.doLogoutAction = function () {
+            console.log("Logging out...");
+            UserService.logout().then(function () {
+
+                // transition to next state
+                $state.go('app-login');
+
+            }, function (_error) {
+                alert("error logging in " + _error.debug);
+            })
+        };
 
 
         }]);

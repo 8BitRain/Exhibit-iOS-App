@@ -1,13 +1,7 @@
 <ion-view title="Exhibit">
-    <ion-nav-buttons side="left">
-        <button class="button" ng-click="refreshList()">
-        <!--<button class="button" ng-click="openModal()">-->
-            Refresh List
-        </button>
-    </ion-nav-buttons>
     <ion-nav-buttons side="right">
-        <button class="button" ng-click="doLogoutAction()">
-            Logout
+        <button class="button" ng-click="openModal()">
+            Filters
         </button>
     </ion-nav-buttons>
     <div class="bar bar-subheader item-input-inset bar-light">
@@ -19,7 +13,7 @@
     <ion-content class="has-subheader">
         <ion-refresher on-refresh="refreshList()"></ion-refresher>
         <ion-list can-swipe="true">
-            <ion-item ng-repeat="data in dataList | filter: query" class="item item-thumbnail-left item-text-wrap"
+            <ion-item ng-repeat="data in dataList | filter: search" class="item item-thumbnail-left item-text-wrap"
                       href="#/tab/list/{{$index}}" >
                 <img src="{{data.thumbnail._url}}" alt="preview">
                 <h5>{{data.city}}</h5>
@@ -39,21 +33,29 @@
 <script id="search-modal.html" type="text/ng-template">
   <div class="modal">
     <ion-header-bar>
-      <h1 class="title">Edit Contact</h1>
+      <h1 class="title">Search Listings</h1>
     </ion-header-bar>
     <ion-content>
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Name</span>
-          <input type="text" ng-model="name">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Info</span>
-          <input type="text" ng-model="info">
-        </label>
-      </div>
+        <ion-list>
+            <label class="item item-input">
+              <span class="input-label">Address</span>
+              <input type="text" ng-model="search.address">
+            </label>
+        </ion-list>
+        <ion-list>
+            <label class="item item-input">
+              <span class="input-label">City</span>
+              <input type="text" ng-model="search.city">
+            </label>
+        </ion-list>
+        <ion-list>
+            <label class="item item-input">
+              <span class="input-label">Description</span>
+              <input type="text" ng-model="search.title">
+            </label>
+        </ion-list>
 
-      <button class="button button-full button-energized" ng-click="closeModal()">Done</button>
+        <button class="button button-full" ng-click="closeModal()">Search</button>
     </ion-content>
   </div>
 </script>
