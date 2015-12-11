@@ -91,16 +91,19 @@
         <div class="row">
           <div class="col">
             <label class="item item-input">
-              <span class="input-label">Squarefootage</span>
+              <span class="input-label">Squarefootage (exact)</span>
               <input type="text" ng-model="search.sqft">
             </label>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <label class="item item-input">
+            <label class="item item-input item-select">
               <span class="input-label">Pets</span>
-              <input type="text" ng-model="search.pets">
+              <select ng-model="search.pets">
+                <option value=true>Yes</option>
+                <option value=false selected>No</option>
+              </select>
             </label>
           </div>
         </div>
@@ -128,17 +131,9 @@
             </label>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <label class="item item-input">
-              <span class="input-label">Distance (mi)</span>
-              <input type="text" ng-model="search.distanceFromHere">
-            </label>
-          </div>
-        </div>
       </ion-list>
 
-      <button class="button button-full button-positive" ng-click="closeModal()">Search</button>
+      <button class="button button-block button-positive" ng-click="closeModal()">Search</button>
     </ion-content>
   </div>
 </script>
