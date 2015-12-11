@@ -7,13 +7,13 @@
     <div class="bar bar-subheader item-input-inset bar-light">
           <label class="item-input-wrapper">
             <i class="icon ion-search placeholder-icon"></i>
-            <input type="search" ng-model="query" placeholder="Search">
+            <input type="search" ng-model="search2" placeholder="Search">
           </label>
         </div>
     <ion-content class="has-subheader">
         <ion-refresher on-refresh="refreshList()"></ion-refresher>
         <ion-list can-swipe="true">
-            <ion-item ng-repeat="data in dataList | filter: search" 
+            <ion-item ng-repeat="data in dataList | filter: search | filter: search2" 
             class="item item-thumbnail-left item-text-wrap"
                       href="#/tab/list/{{$index}}" >
                 <img src="{{data.thumbnail._url}}" alt="preview">
