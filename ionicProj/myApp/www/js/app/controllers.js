@@ -17,17 +17,14 @@ angular.module('app.controllers', [])
         '$state', '$scope', '$ionicModal', 'UserService','AppService', 'DataService',  // <-- controller dependencies
         function ($state, $scope, $ionicModal, UserService, AppService, DataService) {
 
-        $scope.search = {};
-
           $ionicModal.fromTemplateUrl('search-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
           }).then(function(modal) {
             $scope.modal = modal
-            console.log("I'm here!")
           })  
 
-
+          $scope.search = {};
 
         if(DataService.getData()[0]){
             $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
@@ -74,8 +71,30 @@ angular.module('app.controllers', [])
             $scope.modal.remove();
           });
 
+        $scope.byRange = function (fieldName, minValue, maxValue) {
+            if (minValue === undefined) minValue = Number.MIN_VALUE;
+            if (maxValue === undefined) maxValue = Number.MAX_VALUE;
+            console.log("min: " + minValue);
+            console.log("max: " + maxValue);
 
-        }])
+            return function predicateFunc(item) {
+                return minValue <= item[fieldName] && item[fieldName] <= maxValue;
+            };
+        };
+
+        $scope.byPriceRange = function () {
+            var fieldName = 'price';
+            var minValue = 0;
+            var maxValue = $scope.maxPrice;
+            if (minValue === undefined) minValue = Number.MIN_VALUE;
+            if (maxValue === undefined) maxValue = Number.MAX_VALUE;
+            //console.log(maxValue);
+
+            return function predicateFunc(item) {
+                return minValue <= item[fieldName] && item[fieldName] <= maxValue;
+            };
+        };
+    }])
 
 
     .controller('CardboardCtrl', [
