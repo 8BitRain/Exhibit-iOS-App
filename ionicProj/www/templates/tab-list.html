@@ -16,7 +16,7 @@
             <ion-item ng-repeat="data in dataList | filter: search" class="item item-thumbnail-left item-text-wrap"
                       href="#/tab/list/{{$index}}" >
                 <img src="{{data.thumbnail._url}}" alt="preview">
-                <h5>{{data.city}}</h5>
+                <h2>{{data.city}}</h2>
                 <h2>{{data.address}}</h2>
                 <h3>${{data.price}}</h3>
                 <h4>{{data.sqft}} sqft, Beds: {{data.beds}}, Baths: {{data.baths}}</h4>
