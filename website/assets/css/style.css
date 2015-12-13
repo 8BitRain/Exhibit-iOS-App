@@ -5,15 +5,15 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;	
+    -webkit-text-size-adjust: 100%;
 }
 
 :focus {
     outline: 0 !important
 }
 
-strong { 
-	font-weight: 600; 
+strong {
+	font-weight: 600;
 }
 
 a, a:hover, a:focus {
@@ -201,7 +201,7 @@ textarea {
     transition: all .3s;
 }
 
-input[type="text"]:focus, 
+input[type="text"]:focus,
 textarea:focus {
 	outline: 0;
     border: none;
@@ -211,18 +211,18 @@ textarea:focus {
     box-shadow: none;
 }
 
-input[type="text"]:-moz-placeholder, textarea:-moz-placeholder { color: #888; 
+input[type="text"]:-moz-placeholder, textarea:-moz-placeholder { color: #888;
 }
 
-input[type="text"]:-ms-input-placeholder, textarea:-ms-input-placeholder { 
-color: #888; 
+input[type="text"]:-ms-input-placeholder, textarea:-ms-input-placeholder {
+color: #888;
 }
 
-input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
-color: #888; 
+input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+color: #888;
 }
 
-.btn-subscribe, 
+.btn-subscribe,
 .btn-contact {
     margin: 0;
     padding: 0;
@@ -248,7 +248,7 @@ color: #888;
     transition: all .3s;
 }
 
-.btn-subscribe:hover, 
+.btn-subscribe:hover,
 .btn-contact:hover {
     background: #FF797E;
     color: #fff;
@@ -259,7 +259,7 @@ color: #888;
     transition: all .3s;
 }
 
-.btn-subscribe:active, 
+.btn-subscribe:active,
 .btn-contact:active {
 	outline: 0;
     background: #FF797E;
@@ -269,7 +269,7 @@ color: #888;
     box-shadow: none;
 }
 
-.btn-subscribe:focus, 
+.btn-subscribe:focus,
 .btn-contact:focus {
 	outline: 0;
 	color: #fff;
@@ -382,7 +382,7 @@ color: #888;
     font-size: 48px;
     line-height: 80px;
 	margin: 110px 0 10px 0;
-	font-weight: 600; 
+	font-weight: 600;
 }
 
 .top-content .logo h1 {
@@ -393,11 +393,11 @@ color: #888;
 	display: inline-block;
     font-size: 58px;
     line-height: 68px;
-	font-weight: 600; 
+	font-weight: 600;
     color: #FF797E;
 }
 
-.top-content .logo a:hover { 
+.top-content .logo a:hover {
     color: #FF6065;
 }
 
@@ -406,7 +406,7 @@ color: #888;
 	margin: 40px 0 10px 0;
     font-size: 28px;
     line-height: 38px;
-	font-weight: 400; 
+	font-weight: 400;
 }
 
 .top-content .top-button {
@@ -920,7 +920,7 @@ color: #888;
 }
 
 .product-text p {
-	margin: 100px 0px 100px 0px;
+	margin: 150px 0px 150px 0px;
 	padding: 0 60px;
     font-size: 15px;
     line-height: 24px;
@@ -939,7 +939,7 @@ color: #888;
 	min-width:100%;
 	min-height:100% !important;
 	height:700px;
-	
+
 	/*width:auto;
 	height:auto;
 	display:block;*/
@@ -1112,33 +1112,33 @@ color: #888;
     font-style: italic;
     text-align: left;
 }
-.box-arrow-down { 
+.box-arrow-down {
 position: relative;
 }
 
-.box-arrow-down:after, .box-arrow-down:before { 
-top: 100%; 
-left: 100px; 
-border: solid transparent; 
-content: " "; 
-height: 0; 
-width: 0; 
-position: absolute; 
-pointer-events: none; 
+.box-arrow-down:after, .box-arrow-down:before {
+top: 100%;
+left: 100px;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
 }
 
-.box-arrow-down:after { 
-border-color: rgba(246, 249, 250, 0); 
-border-top-color: #f4f4f4; 
-border-width: 18px; 
-margin-left: -18px; 
+.box-arrow-down:after {
+border-color: rgba(246, 249, 250, 0);
+border-top-color: #f4f4f4;
+border-width: 18px;
+margin-left: -18px;
 }
 
-.box-arrow-down:before { 
-border-color: rgba(220, 232, 237, 0); 
-border-top-color: #E5E6EA; 
-border-width: 21px; 
-margin-left: -21px; 
+.box-arrow-down:before {
+border-color: rgba(220, 232, 237, 0);
+border-top-color: #E5E6EA;
+border-width: 21px;
+margin-left: -21px;
 }
 
 .img {
@@ -1221,7 +1221,7 @@ margin-left: -21px;
     padding-bottom: 10px;
 }
 
-.team h3 {    
+.team h3 {
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -1352,7 +1352,7 @@ margin-left: -21px;
     line-height: 24px;
 }
 
-.contact-form, 
+.contact-form,
 .contact-address {
 	padding-bottom: 80px;
 }
@@ -1377,7 +1377,7 @@ margin-left: -21px;
 	margin: 15px 0 0 0;
 }
 
-.contact-form form input, 
+.contact-form form input,
 .contact-form form textarea {
     width: 90%;
     height: 52px;
@@ -1440,7 +1440,7 @@ margin-left: -21px;
 text-align:center;
 }
 
-#footer h3 { 
+#footer h3 {
     font-size: 32px;
     font-weight: 300;
     line-height: 36px;
@@ -1454,29 +1454,29 @@ text-align:center;
     line-height: 24px;
 }
 
-#footer { 
-background-color: #5b9ca1; 
-padding: 60px 0 60px; 
-text-align:center; 
+#footer {
+background-color: #5b9ca1;
+padding: 60px 0 60px;
+text-align:center;
 }
 
 #footer2 {
 	position:relative;
 	text-align:center;
-	padding:39px 0 36px; 
+	padding:39px 0 36px;
 	background: #323A45;
 	color:#999;
-	margin:0 0; 
+	margin:0 0;
 	font-size:13px;
 	font-weight:400;
 }
 
 .copyright a {
-color:#aaa; 
+color:#aaa;
 }
 
 .copyright a:hover {
-color: #FF6065; 
+color: #FF6065;
 }
 
 
@@ -1542,14 +1542,14 @@ color: #FF6065;
     body {
         padding-left: 0;
         padding-right: 0;
-    }    
- 
+    }
+
     .navbar-default.menu-top{
         background-color: #fff !important;
     border-bottom: 1px solid #eee;
         text-align: center;
     width:100%;
-    }  
+    }
 .navbar-default.menu-top li a{
     color: #323A45 !important;
 }
@@ -1560,7 +1560,7 @@ color: #FF6065;
     .top-content .text {
     	text-align: center;
     }
-    
+
 
     .top-content .logo a, .features h3, .product-text h3, .product-button, .faq-text h3, .subscribe h3, .testimonials h3, .team h3, .contact h3 {
         padding: 0 20px;
@@ -1578,15 +1578,15 @@ color: #FF6065;
     line-height: 52px;
 	margin: 110px 0 10px 0;
 }
- 
+
     .features-box p, .team-member p, .contact-address p {
         padding: 0 20px;
     }
-  
+
 .features-box1, .features-box2, .features-box3, .features-box4, .features-box5, .features-box6 {
     border: none;
 }
-  
+
 .highlights {
 	padding-left: 20px;
 }
@@ -1600,12 +1600,12 @@ color: #FF6065;
     .contact-form, .contact-address {
         text-align: center;
     }
-    
+
     .contact-form {
         padding-bottom: 40px;
     }
-    
-.contact-form form input, 
+
+.contact-form form input,
 .contact-form form textarea {
         width: 100%;
 }
@@ -1613,7 +1613,7 @@ color: #FF6065;
     .contact-address {
         padding-bottom: 65px;
     }
-    
+
 .reviews-panel p {
     padding: 20px;
     margin-bottom: 0;
@@ -1622,11 +1622,11 @@ color: #FF6065;
     .copyright, .social-icon {
         text-align: center;
     }
-    
+
     .copyright p {
         padding: 0 20px;
     }
-    
+
     .social-icon {
         margin-top: 15px;
     }
@@ -1690,6 +1690,6 @@ color: #FF6065;
 		padding-top: 5px;
 		padding-bottom: 5px;
 	}
-	
+
 
 }
