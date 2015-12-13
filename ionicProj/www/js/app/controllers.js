@@ -72,7 +72,16 @@ angular.module('app.controllers', [])
           };
 
             $scope.clearModal = function() {
-                console.log("Clear");
+                console.log("Cleared search");
+                $scope.search.city = null;
+                $scope.search.beds = null;
+                $scope.search.baths = null;
+                $scope.search.price = null;
+                $scope.search.pets = null;
+                $scope.search.sqft = null;
+                $scope.search.zip = null;
+                $scope.search.address = null;
+                $scope.search.title = null;
             };
           $scope.$on('$destroy', function() {
             $scope.modal.remove();
