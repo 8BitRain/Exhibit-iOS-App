@@ -71,10 +71,14 @@ angular.module('app.controllers', [])
             $scope.modal.hide();
           };
 
-            $scope.clearModal = function() {
-                console.log("Cleared search");
-                $scope.search = {};
-            };
+          $scope.clearModal = function() {
+              console.log("Cleared search");
+              $scope.search = {};
+          };
+          $scope.clearSearchField = function() {
+              console.log("Cleared Search Field");
+              $scope.search2 = '';
+          };
           $scope.$on('$destroy', function() {
             $scope.modal.remove();
           });
