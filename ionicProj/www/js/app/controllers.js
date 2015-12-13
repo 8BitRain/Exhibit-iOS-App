@@ -17,16 +17,10 @@ angular.module('app.controllers', [])
         '$state', '$scope', '$ionicModal', 'UserService','AppService', 'DataService',  // <-- controller dependencies
         function ($state, $scope, $ionicModal, UserService, AppService, DataService) {
 
-        //Initial query to fill list
-        AppService.queryExhibits(function(exhibits) {
-            console.log("callback called!");
-            console.log(exhibits);
-            $scope.dataList = exhibits;
-            DataService.setData(exhibits);
-            $scope.$broadcast('scroll.refreshComplete');
-        });
+        
 
         $scope.search = {};
+
 
           $ionicModal.fromTemplateUrl('search-modal.html', {
             scope: $scope,
@@ -65,10 +59,8 @@ angular.module('app.controllers', [])
             });
         };
         
-        
-        /*$scope.$on('$ionicView.beforeEnter', function(){
-            screen.lockOrientation('portrait');
-        });*/
+        //Initial query to fill list
+        $scope.refreshList();
 
 
           $scope.openModal = function() {
