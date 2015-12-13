@@ -50,8 +50,13 @@ angular.module('app.services', [])
                     var city = object.get('city');
                     var zip = object.get('zip');
 
+                    //If no thumbnail set
+                    if(typeof thumbnail === 'undefined'){
+                      thumbnail = {_url: "http://files.parsetfss.com/05724cba-8bc9-4ddc-9a62-90b6e75efa1a/tfss-a22124f5-1557-4d7f-b630-f0246dcb9cc1-06.jpg"}
+                    }
+
                     var exhibit = {objectID: objectID, title:title, address:address, location:location,
-                                  thumbnail:thumbnail, sphere:sphere, isPicture: isPicture, beds:beds, 
+                                  thumbnail:thumbnail, sphere:sphere, isPicture: isPicture, beds:beds,
                                   baths:baths, pets:pets, price:price, sqft: sqft, city: city, zip: zip};
 
                     //Add to list of exhibits
