@@ -1,5 +1,3 @@
-// <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
-
 function uploadToServer(){
   console.log("Uploading sphere to server...");
   var title = document.getElementById('title').value;
