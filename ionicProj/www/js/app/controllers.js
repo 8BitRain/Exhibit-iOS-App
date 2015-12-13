@@ -10,14 +10,14 @@ angular.module('app.controllers', [])
 
             $scope.index = $scope.dataList[0];
             //$stateParams.itemId;
-            
+
 
         }])
     .controller('ListCtrl', [
         '$state', '$scope', '$ionicModal', 'UserService','AppService', 'DataService',  // <-- controller dependencies
         function ($state, $scope, $ionicModal, UserService, AppService, DataService) {
 
-        
+
 
         $scope.search = {};
 
@@ -28,18 +28,18 @@ angular.module('app.controllers', [])
           }).then(function(modal) {
             $scope.modal = modal
             console.log("I'm here!")
-          })  
+          })
 
 
 
         if(DataService.getData()[0]){
             $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
         }
-        
+
         if(DataService.getData()[0]){
             $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
         }
-        
+
         if(document.getElementById("video") != null){
             document.getElementById("video").remove();
             console.log("Removed video");
@@ -58,7 +58,7 @@ angular.module('app.controllers', [])
                 $scope.$broadcast('scroll.refreshComplete');
             });
         };
-        
+
         //Initial query to fill list
         $scope.refreshList();
 
@@ -73,15 +73,7 @@ angular.module('app.controllers', [])
 
             $scope.clearModal = function() {
                 console.log("Cleared search");
-                $scope.search.city = null;
-                $scope.search.beds = null;
-                $scope.search.baths = null;
-                $scope.search.price = null;
-                $scope.search.pets = null;
-                $scope.search.sqft = null;
-                $scope.search.zip = null;
-                $scope.search.address = null;
-                $scope.search.title = null;
+                $scope.search = {};
             };
           $scope.$on('$destroy', function() {
             $scope.modal.remove();
@@ -99,7 +91,7 @@ angular.module('app.controllers', [])
             if(DataService.getData()[0]){
                 $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
             }
-            
+
               if(DataService.getData()[0]){
                 $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
             }
@@ -107,7 +99,7 @@ angular.module('app.controllers', [])
             $scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('landscape');
             });
-            
+
             $scope.$on('$ionicView.beforeLeave', function(){
                 screen.lockOrientation('portrait');
             })
@@ -116,7 +108,7 @@ angular.module('app.controllers', [])
     .controller('AccountCtrl', [
         '$state', '$scope', 'UserService',   // <-- controller dependencies
         function ($state, $scope, UserService) {
-            
+
                 /*$scope.$on('$ionicView.beforeEnter', function(){
                 screen.lockOrientation('portrait');
             });*/
@@ -127,7 +119,7 @@ angular.module('app.controllers', [])
                 console.log($scope.user);
             });
 
-            
+
         $scope.doLogoutAction = function () {
             console.log("Logging out...");
             UserService.logout().then(function () {
