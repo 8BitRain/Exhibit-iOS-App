@@ -920,11 +920,11 @@ color: #888;
 }
 
 .product-text p {
-	margin: 150px 0px 150px 0px;
+	margin: 100px 0px 100px 0px;
 	padding: 0 60px;
-    font-size: 15px;
-    line-height: 24px;
-    font-weight: 400;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 400;
 }
 
 .product-text h3 {
