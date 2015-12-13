@@ -71,6 +71,9 @@ angular.module('app.controllers', [])
             $scope.modal.hide();
           };
 
+            $scope.clearModal = function() {
+                console.log("Clear");
+            };
           $scope.$on('$destroy', function() {
             $scope.modal.remove();
           });
