@@ -4,20 +4,56 @@
             Logout
         </button>
     </ion-nav-buttons>
-    <ion-content class="padding">
+    <div class="padding">
+            <div class="item item-divider"> Add a photosphere </div>
+            <label class="item item-input">
+              <input type="text" ng-model="upload.title" placeholder="Title">
+            </label>
+            <label class="item item-input">
+              <input type="text" ng-model="upload.address" placeholder="Street Address">
+            </label>
+            <label class="item item-input">
+              <input type="text" ng-model="upload.city" placeholder="City">
+            </label>
+            <label class="item item-input">
+              <input type="text" ng-model="upload.zip" placeholder="Zip Code">
+            </label>
+            <label class="item item-input">
+              <input type="text" ng-model="upload.sqft" placeholder="Square Feet">
+            </label>
+            <label class="item item-input">
+              <input type="text" ng-model="upload.price" placeholder="Price">
+            </label>
+            <label class="item item-input item-select">
+              <span class="input-label">Beds</span>
+              <select ng-model="upload.beds">
+                <option></option>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+            </label>
+            <label class="item item-input item-select">
+              <span class="input-label">Baths</span>
+              <select ng-model="upload.baths">
+                <option></option>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </label>
+        </div>
 
-        <ion-item class="item item-thumbnail-left item-text-wrap" >
-    		<img src="http://files.parsetfss.com/05724cba-8bc9-4ddc-9a62-90b6e75efa1a/tfss-5b9aed9e-3247-4a43-b018-742d2dae9596-guy-smiling.jpeg" alt="User">
-
-            <h1 style="padding:-20px">{{user._serverData.first_name}} {{user._serverData.last_name}}</h1>
-        </ion-item>
-
-        <ion-item class="item item-text-wrap" >
-        			<h3>Email: {{user._serverData.email}}</h3>
-    				<h3>Phone: {{user._serverData.phone}}</h3>
-    				<h3>Interested in: {{user._serverData.interest}} </h3>
-
-        </ion-item>
-
-    </ion-content>
+        <button class="button button-block" ng-click="uploadExhibit()">Upload</button>
 </ion-view>
