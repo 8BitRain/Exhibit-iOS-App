@@ -151,8 +151,8 @@ angular.module('starter',
         container,
         effect,
         controls,
-        clock,
-
+        clock;
+/*
         // Particles
         particles = new THREE.Object3D(),
         totalParticles = 200,
@@ -162,15 +162,15 @@ angular.module('starter',
         lastColorRange = [0, 0.3],
         currentColorRange = [0, 0.3],
          video, videoImage, videoImageContext, videoTexture;
-
+*/
 
       init();
-    
+
       if(isPhoto == true){
         console.log("This item is a picture");
       }
       console.log("isPicture value: " + isPhoto);
-      
+
 
     console.log(sphereUrl);
 
@@ -178,13 +178,11 @@ angular.module('starter',
     function init() {
       scene = new THREE.Scene();
       //Was 90 for first value and .001 for second value
-      camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+      camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 1000);
       //camera.position.set(0, 50, 0);
         camera.position.set(0, 0, 0);
-        
+
       scene.add(camera);
-      
-     
 
       renderer = new THREE.WebGLRenderer();
       element = renderer.domElement;
@@ -218,32 +216,11 @@ angular.module('starter',
         window.removeEventListener('deviceorientation', setOrientationControls, true);
       }
       window.addEventListener('deviceorientation', setOrientationControls, true);
-        
-    
+
+
       // Lighting
-        
-        var newlight = new THREE.SpotLight(0xffffff);
-        newlight.position.set( -150, 150, 150 );
-
-        var pointLight = new THREE.PointLight( 0xffffff);
-        pointLight.position.set( -50, 50, 50 );
-
-        scene.add(newlight);
-        scene.add(pointLight);
-    
-      var directionalLight = new THREE.DirectionalLight( 0xffffff );
-      directionalLight.position.set( 0, 50, 0 ).normalize();
-      scene.add( directionalLight );
-          
-      var secondDirectionalLight = new THREE.DirectionalLight (0xffffff);
-      secondDirectionalLight.position.set(0,0,0).normalize();
-      
       var ambient = new THREE.AmbientLight( 0xffffff);
-      scene.add( ambient ); 
-      
-      var light = new THREE.PointLight(0xFFFFFF, 2, 100);
-      light.position.set(0, 0, 0);
-      scene.add(light);
+      scene.add( ambient );
 
       //creating a sphere
 
@@ -259,13 +236,13 @@ angular.module('starter',
         //sphere.position.set(5, 100, 0);
         sphere.position.set(0,0,0);
         sphere.scale.x = -1;
-        scene.add(sphere); 
-      } 
+        scene.add(sphere);
+      }
     else {
-      ///////////
+    ///////////
     // VIDEO //
     ///////////
-    
+
     // create the video element
     video = document.createElement( 'video' );
     // video.id = 'video';
@@ -274,8 +251,7 @@ angular.module('starter',
     video.src = sphereUrl;
     video.setAttribute('webkit-playsinline', 'webkit-playsinline');
     video.load(); // must call after setting/changing source
-   
-    
+
     videoImage = document.createElement( 'canvas' );
     videoImage.width = 3840;
     videoImage.height = 2160;
@@ -288,88 +264,32 @@ angular.module('starter',
     videoTexture = new THREE.Texture( videoImage );
     videoTexture.minFilter = THREE.LinearFilter;
     videoTexture.magFilter = THREE.LinearFilter;
-    
+
     var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side:THREE.DoubleSide } );
     // the geometry on which the movie will be displayed;
     //      movie image will be scaled to fit these dimensions.
     var movieGeometry = new THREE.SphereGeometry(360, 360,360);
-    
-    var movieScreen = new THREE.Mesh( 
-        movieGeometry, 
+
+    var movieScreen = new THREE.Mesh(
+        movieGeometry,
         movieMaterial );
-          
+
     movieScreen.position.set(0,50,0);
     movieScreen.scale.x = -1;
     scene.add(movieScreen);
-        
+
     video.play();
-      
+
     }
- 
-        
-        
-    
-    
-        // LIGHT
-    var light = new THREE.PointLight(0xffffff);
-    light.position.set(0,250,0);
-    scene.add(light);
-    
-    camera.position.set(0,0,0);
-    //camera.lookAt(movieScreen.position)
-               
-      /*var floorTexture = THREE.ImageUtils.loadTexture('img/textures/wood.jpg');
-      floorTexture.wrapS = THREE.RepeatWrapping;
-      floorTexture.wrapT = THREE.RepeatWrapping;
-      floorTexture.repeat = new THREE.Vector2(50, 50);
-      floorTexture.anisotropy = renderer.getMaxAnisotropy();
-
-      var floorMaterial = new THREE.MeshPhongMaterial({
-        color: 0xffffff,
-        specular: 0xffffff,
-        shininess: 20,
-        shading: THREE.FlatShading,
-        map: floorTexture
-      });
-
-      var geometry = new THREE.PlaneBufferGeometry(1000, 1000);
-
-      var floor = new THREE.Mesh(geometry, floorMaterial);
-      floor.rotation.x = -Math.PI / 2;
-      //scene.add(floor);
-
-      var particleTexture = THREE.ImageUtils.loadTexture('img/textures/particle.png'),
-          spriteMaterial = new THREE.SpriteMaterial({
-          map: particleTexture,
-          color: 0xffffff
-        });
-
-      for (var i = 0; i < totalParticles; i++) {
-        var sprite = new THREE.Sprite(spriteMaterial);
-
-        sprite.scale.set(64, 64, 1.0);
-        sprite.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.75);
-        sprite.position.setLength(maxParticleSize * Math.random());
-
-        sprite.material.blending = THREE.AdditiveBlending;
-
-        particles.add(sprite);
-      }
-      particles.position.y = 70;
-      //scene.add(particles);*/
-     
-
-      //adjustToWeatherConditions();
 
       clock = new THREE.Clock();
 
       animate();
     }
-      
+
     function animate() {
 
       requestAnimationFrame(animate);
-
       update(clock.getDelta());
       render(clock.getDelta());
     }
@@ -397,7 +317,7 @@ angular.module('starter',
         if(!isPhoto){
             videoImageContext.drawImage( video, 0, 0 );
         }
-        if ( videoTexture ) 
+        if ( videoTexture )
             videoTexture.needsUpdate = true;
     }
 
