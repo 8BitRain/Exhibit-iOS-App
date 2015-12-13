@@ -1,5 +1,4 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
-<<<<<<< HEAD
 module.exports = [
     {
         "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
@@ -18,9 +17,6 @@ module.exports = [
         ]
     }
 ];
-=======
-module.exports = [];
->>>>>>> 8581eaa4ca4e4edec30160fe3aed924225144b77
 module.exports.metadata = 
 // TOP OF METADATA
 {}
