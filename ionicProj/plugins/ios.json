@@ -6,6 +6,10 @@
     "config_munge": {
         "files": {}
     },
-    "installed_plugins": {},
+    "installed_plugins": {
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.ionicframework.myapp997791"
+        }
+    },
     "dependent_plugins": {}
 }
