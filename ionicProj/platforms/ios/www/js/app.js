@@ -152,17 +152,6 @@ angular.module('starter',
         effect,
         controls,
         clock;
-/*
-        // Particles
-        particles = new THREE.Object3D(),
-        totalParticles = 200,
-        maxParticleSize = 200,
-        particleRotationSpeed = 0,
-        particleRotationDeg = 0,
-        lastColorRange = [0, 0.3],
-        currentColorRange = [0, 0.3],
-         video, videoImage, videoImageContext, videoTexture;
-*/
 
       init();
 
