@@ -64,6 +64,17 @@ angular.module('starter',
             })
 
             // Each tab has its own nav history stack:
+
+            .state('tab.upload', {
+                url: '/upload',
+                views: {
+                    'tab-upload': {
+                        templateUrl: 'templates/tab-upload.html',
+                        controller: 'ListCtrl'
+                    }
+                }
+            })
+
             .state('tab.list', {
                 url: '/list',
                 views: {

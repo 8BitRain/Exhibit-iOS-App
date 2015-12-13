@@ -33,12 +33,28 @@ angular.module('app.controllers', [])
 
 
         if(DataService.getData()[0]){
-            $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
-        }
+                var myData = DataService.getData();
+                for(i = 0; i < myData.length; i++){
+                    var curID = $state.params.itemId
+                    if (myData[i].objectID == curID){
+                        $scope.photoSphere = myData[i].sphere._url;
+                        break;
+                    }
+                }
+                
+            }
 
-        if(DataService.getData()[0]){
-            $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
-        }
+             if(DataService.getData()[0]){
+                var myData = DataService.getData();
+                for(i = 0; i < myData.length; i++){
+                    var curID = $state.params.itemId
+                    if (myData[i].objectID == curID){
+                        $scope.isPhoto = myData[i].isPicture;
+                        break;
+                    }
+                }
+                
+            }
 
         if(document.getElementById("video") != null){
             document.getElementById("video").remove();
@@ -92,13 +108,28 @@ angular.module('app.controllers', [])
         '$state', '$scope', 'UserService','AppService', 'DataService',  // <-- controller dependencies
         function ($state, $scope, UserService, AppService, DataService) {
 
-
             if(DataService.getData()[0]){
-                $scope.photoSphere = DataService.getData()[$state.params.itemId].sphere._url;
+                var myData = DataService.getData();
+                for(i = 0; i < myData.length; i++){
+                    var curID = $state.params.itemId
+                    if (myData[i].objectID == curID){
+                        $scope.photoSphere = myData[i].sphere._url;
+                        break;
+                    }
+                }
+                
             }
 
-              if(DataService.getData()[0]){
-                $scope.isPhoto = DataService.getData()[$state.params.itemId].isPicture;
+             if(DataService.getData()[0]){
+                var myData = DataService.getData();
+                for(i = 0; i < myData.length; i++){
+                    var curID = $state.params.itemId
+                    if (myData[i].objectID == curID){
+                        $scope.isPhoto = myData[i].isPicture;
+                        break;
+                    }
+                }
+                
             }
 
             $scope.$on('$ionicView.beforeEnter', function(){
