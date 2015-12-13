@@ -74,6 +74,7 @@ angular.module('app.controllers', [])
           $scope.clearModal = function() {
               console.log("Cleared search");
               $scope.search = {};
+              $scope.modal.hide();
           };
           $scope.clearSearchField = function() {
               console.log("Cleared Search Field");
