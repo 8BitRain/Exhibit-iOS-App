@@ -1,0 +1,89 @@
+a, a:hover, a:focus {
+	color: #5CACEE;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #5CACEE !important;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #5CACEE !important;
+    background-color: transparent;
+}
+.navbar-brand{
+    color: #5CACEE !important;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #5CACEE !important;
+
+}
+ .navbar-default .navbar-toggle .icon-bar {
+  background-color: #5CACEE;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+	color: #5CACEE;
+}
+
+.btn-top {
+	background: #87CEFF;
+}
+
+.btn-top:hover, .btn-top:focus, .btn-top:active, .btn-top.active {
+	background: #5CACEE;
+}
+
+
+.btn-subscribe, 
+.btn-contact {
+    background: #5CACEE;
+}
+
+.btn-subscribe:hover, 
+.btn-contact:hover {
+    background: #87CEFF;
+}
+
+.btn-subscribe:active, 
+.btn-contact:active {
+    background: #87CEFF;
+}
+.top-content .logo a {
+    color: #87CEFF;
+}
+
+.top-content .logo a:hover { 
+    color: #5CACEE	;
+}
+
+.features-box1:hover .icon i, .features-box2:hover .icon i, .features-box3:hover .icon i, .features-box4:hover .icon i, .features-box5:hover .icon i, .features-box6:hover .icon i{
+	color: #5CACEE;
+}
+
+.product-text {
+	background: #87CEFF;
+}
+
+.intro-box-left h4, .intro-box-right h4 {
+    color: #5CACEE;
+}
+
+.reviews .review-author strong {
+    color: #87CEFF;
+    font-size: 14px;
+}
+
+.contact-address p i {
+	color: #5CACEE;
+}
+
+#footer { 
+background-color: #87CEFF; 
+}
+
+.social-icon {
+    color: #5CACEE;
+}
+
+.copyright a:hover {
+color: #5CACEE; 
+}

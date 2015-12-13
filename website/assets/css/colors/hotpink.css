@@ -1,0 +1,89 @@
+a, a:hover, a:focus {
+	color: #EE3A8C;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #EE3A8C !important;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #EE3A8C !important;
+    background-color: transparent;
+}
+.navbar-brand{
+    color: #EE3A8C !important;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #EE3A8C !important;
+
+}
+ .navbar-default .navbar-toggle .icon-bar {
+  background-color: #EE3A8C;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+	color: #EE3A8C;
+}
+
+.btn-top {
+	background: #EE6AA7;
+}
+
+.btn-top:hover, .btn-top:focus, .btn-top:active, .btn-top.active {
+	background: #EE3A8C;
+}
+
+
+.btn-subscribe, 
+.btn-contact {
+    background: #EE3A8C;
+}
+
+.btn-subscribe:hover, 
+.btn-contact:hover {
+    background: #EE6AA7;
+}
+
+.btn-subscribe:active, 
+.btn-contact:active {
+    background: #EE6AA7;
+}
+.top-content .logo a {
+    color: #EE6AA7;
+}
+
+.top-content .logo a:hover { 
+    color: #EE3A8C	;
+}
+
+.features-box1:hover .icon i, .features-box2:hover .icon i, .features-box3:hover .icon i, .features-box4:hover .icon i, .features-box5:hover .icon i, .features-box6:hover .icon i{
+	color: #EE3A8C;
+}
+
+.product-text {
+	background: #EE6AA7;
+}
+
+.intro-box-left h4, .intro-box-right h4 {
+    color: #EE3A8C;
+}
+
+.reviews .review-author strong {
+    color: #EE6AA7;
+    font-size: 14px;
+}
+
+.contact-address p i {
+	color: #EE3A8C;
+}
+
+#footer { 
+background-color: #EE6AA7; 
+}
+
+.social-icon {
+    color: #EE3A8C;
+}
+
+.copyright a:hover {
+color: #EE3A8C; 
+}
