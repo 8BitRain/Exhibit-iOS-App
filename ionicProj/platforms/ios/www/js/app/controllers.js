@@ -139,6 +139,7 @@ angular.module('app.controllers', [])
             	success: function(testObject) {
               	// Execute any logic that should take place after the object is saved.
               	console.log('New object created with objectId: ' + testObject.id);
+                alert("Successfully added your location to our Exhibit collection!");
             	},
             	error: function(testObject, error) {
               	// Execute any logic that should take place if the save fails.

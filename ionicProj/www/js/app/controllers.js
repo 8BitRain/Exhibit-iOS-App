@@ -110,7 +110,7 @@ angular.module('app.controllers', [])
             var isPicture = true;
             var beds = exhibit.beds;
             var baths = exhibit.baths;
-            var pets = Boolean(exhibit.pets);
+            var pets = (exhibit.pets === "true");
             var price = exhibit.price;
             var sqft = exhibit.sqft;
             var city = exhibit.city;
@@ -139,6 +139,8 @@ angular.module('app.controllers', [])
             	success: function(testObject) {
               	// Execute any logic that should take place after the object is saved.
               	console.log('New object created with objectId: ' + testObject.id);
+                console.log(testObject);
+                alert("Successfully added your location to our Exhibit collection!");
             	},
             	error: function(testObject, error) {
               	// Execute any logic that should take place if the save fails.
