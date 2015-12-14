@@ -100,27 +100,31 @@ angular.module('app.controllers', [])
             $scope.modal.remove();
           });
 
-          //Upload exhibits
-          $scope.uploadExhibit = function() {
-              console.log("Attempting to upload exhibit...");
-              var title = $scope.upload.title;
-              var address = $scope.upload.address;
-              var location = $scope.upload.city;
-              // var sphere = $scope.upload.sphere;
-              var isPicture = true;
-              var beds = $scope.upload.beds;
-              var baths = $scope.upload.baths;
-              var pets = true;
-              var price = $scope.upload.price;
-              var sqft = $scope.upload.sqft;
-              var city = $scope.upload.city;
-              var zip = $scope.upload.zip;
+          // //Upload exhibits
+          // $scope.uploadExhibit = function() {
+          //     console.log("Attempting to upload exhibit...");
+          //     var title = $scope.upload.title;
+          //     var address = $scope.upload.address;
+          //     var location = $scope.upload.city;
+          //     // var sphere = $scope.upload.sphere;
+          //     var isPicture = true;
+          //     var beds = $scope.upload.beds;
+          //     var baths = $scope.upload.baths;
+          //     var pets = true;
+          //     var price = $scope.upload.price;
+          //     var sqft = $scope.upload.sqft;
+          //     var city = $scope.upload.city;
+          //     var zip = $scope.upload.zip;
+          //
+          //     var exhibit = {objectID: objectID, title:title, address:address, location:location,
+          //                   sphere:sphere, isPicture: isPicture, beds:beds, baths:baths, pets:pets, price:price, sqft: sqft, city: city, zip: zip};
+          //
+          //     console.log(exhibit);
+          // };
 
-              var exhibit = {objectID: objectID, title:title, address:address, location:location,
-                            sphere:sphere, isPicture: isPicture, beds:beds, baths:baths, pets:pets, price:price, sqft: sqft, city: city, zip: zip};
-
-              console.log(exhibit);
-          };
+          $scope.uploadExhibit= function (item) {
+            alert(item);
+          }
 
         }])
 
