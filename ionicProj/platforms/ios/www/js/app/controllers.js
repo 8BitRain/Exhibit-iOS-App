@@ -41,7 +41,7 @@ angular.module('app.controllers', [])
                         break;
                     }
                 }
-                
+
             }
 
              if(DataService.getData()[0]){
@@ -53,7 +53,7 @@ angular.module('app.controllers', [])
                         break;
                     }
                 }
-                
+
             }
 
         if(document.getElementById("video") != null){
@@ -100,7 +100,53 @@ angular.module('app.controllers', [])
             $scope.modal.remove();
           });
 
+          // Upload exhibits
+          $scope.uploadExhibit= function (exhibit) {
+            console.log("Attempting to upload exhibit...");
+            var title = exhibit.title;
+            var address = exhibit.address;
+            var location = new Parse.GeoPoint({latitude: 43.0667, longitude: 89.4000});
+            // var sphere = $scope.upload.sphere;
+            var isPicture = true;
+            var beds = exhibit.beds;
+            var baths = exhibit.baths;
+            var pets = Boolean(exhibit.pets);
+            var price = exhibit.price;
+            var sqft = exhibit.sqft;
+            var city = exhibit.city;
+            var zip = exhibit.zip;
 
+            console.log(exhibit);
+
+            Parse.initialize("OmsGMVVEXlyeH7ogBUCxYBYrhTxskALiSyUI3NQ4", "IxFoJ67sWnY97WVgFPSpesiXhccPLWEdrCs3EMuj");
+
+            var TestObject = Parse.Object.extend("Exhibits");
+          	var testObject = new TestObject();
+          	testObject.set("title", title);
+            testObject.set("location", location);
+            testObject.set("address", address);
+            testObject.set("city", city);
+            testObject.set("zip", zip);
+            testObject.set("sqft", parseInt(sqft));
+            testObject.set("price", parseInt(price));
+            testObject.set("beds", parseInt(beds));
+            testObject.set("baths", parseInt(baths));
+            // testObject.set("sphere", sphere);
+            testObject.set("pets", pets);
+            testObject.set("isPicture", true);
+
+          	testObject.save(null, {
+            	success: function(testObject) {
+              	// Execute any logic that should take place after the object is saved.
+              	console.log('New object created with objectId: ' + testObject.id);
+            	},
+            	error: function(testObject, error) {
+              	// Execute any logic that should take place if the save fails.
+              	// error is a Parse.Error with an error code and message.
+              	console.log('Failed to create new object, with error code: ' + error.message);
+            	}
+          	});
+          }
         }])
 
 
@@ -117,7 +163,7 @@ angular.module('app.controllers', [])
                         break;
                     }
                 }
-                
+
             }
 
              if(DataService.getData()[0]){
@@ -129,7 +175,7 @@ angular.module('app.controllers', [])
                         break;
                     }
                 }
-                
+
             }
 
             $scope.$on('$ionicView.beforeEnter', function(){
