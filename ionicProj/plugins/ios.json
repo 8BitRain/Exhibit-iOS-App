@@ -9,6 +9,12 @@
     "installed_plugins": {
         "cordova-plugin-screen-orientation": {
             "PACKAGE_NAME": "com.ionicframework.myapp997791"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.myapp997791"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.myapp997791"
         }
     },
     "dependent_plugins": {}

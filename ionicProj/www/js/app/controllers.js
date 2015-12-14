@@ -4,6 +4,91 @@
  * be used in an application
  */
 angular.module('app.controllers', [])
+
+    .controller('UploadController', function($scope, $cordovaDevice, $cordovaFile, $ionicPlatform, $cordovaEmailComposer, $ionicActionSheet, ImageService, FileService) {
+     
+      $ionicPlatform.ready(function() {
+        $scope.images = FileService.images();
+        $scope.$apply();
+      });
+     
+      $scope.urlForImage = function(imageName) {
+        var trueOrigin = cordova.file.dataDirectory + imageName;
+        return trueOrigin;
+      }
+     
+      $scope.addMedia = function() {
+        $scope.hideSheet = $ionicActionSheet.show({
+          buttons: [
+            { text: 'Take photo' },
+            { text: 'Photo from library' }
+          ],
+          titleText: 'Add images',
+          cancelText: 'Cancel',
+          buttonClicked: function(index) {
+            $scope.addImage(index);
+          }
+        });
+      }
+     
+      $scope.addImage = function(type) {
+        $scope.hideSheet();
+        ImageService.handleMediaDialog(type).then(function() {
+          $scope.$apply();
+        });
+      }
+
+      // Upload exhibits
+      $scope.uploadExhibit= function (exhibit) {
+        console.log("Attempting to upload exhibit...");
+        var title = exhibit.title;
+        var address = exhibit.address;
+        var location = new Parse.GeoPoint({latitude: 43.0667, longitude: 89.4000});
+        // var sphere = $scope.upload.sphere;
+        var isPicture = true;
+        var beds = exhibit.beds;
+        var baths = exhibit.baths;
+        var pets = (exhibit.pets === "true");
+        var price = exhibit.price;
+        var sqft = exhibit.sqft;
+        var city = exhibit.city;
+        var zip = exhibit.zip;
+
+        console.log(exhibit);
+
+        Parse.initialize("OmsGMVVEXlyeH7ogBUCxYBYrhTxskALiSyUI3NQ4", "IxFoJ67sWnY97WVgFPSpesiXhccPLWEdrCs3EMuj");
+
+        var TestObject = Parse.Object.extend("Exhibits");
+        var testObject = new TestObject();
+        testObject.set("title", title);
+        testObject.set("location", location);
+        testObject.set("address", address);
+        testObject.set("city", city);
+        testObject.set("zip", zip);
+        testObject.set("sqft", parseInt(sqft));
+        testObject.set("price", parseInt(price));
+        testObject.set("beds", parseInt(beds));
+        testObject.set("baths", parseInt(baths));
+        // testObject.set("sphere", sphere);
+        testObject.set("pets", pets);
+        testObject.set("isPicture", true);
+
+        testObject.save(null, {
+            success: function(testObject) {
+            // Execute any logic that should take place after the object is saved.
+            console.log('New object created with objectId: ' + testObject.id);
+            console.log(testObject);
+            alert("Successfully added your location to our Exhibit collection!");
+            },
+            error: function(testObject, error) {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and message.
+            console.log('Failed to create new object, with error code: ' + error.message);
+            }
+        });
+      }
+    })
+
     .controller('ListDetailCtrl', [
         '$state', '$scope', '$stateParams', 'UserService',   // <-- controller dependencies
         function ($state, $scope, $stateParams, UserService) {
@@ -99,56 +184,6 @@ angular.module('app.controllers', [])
           $scope.$on('$destroy', function() {
             $scope.modal.remove();
           });
-
-          // Upload exhibits
-          $scope.uploadExhibit= function (exhibit) {
-            console.log("Attempting to upload exhibit...");
-            var title = exhibit.title;
-            var address = exhibit.address;
-            var location = new Parse.GeoPoint({latitude: 43.0667, longitude: 89.4000});
-            // var sphere = $scope.upload.sphere;
-            var isPicture = true;
-            var beds = exhibit.beds;
-            var baths = exhibit.baths;
-            var pets = (exhibit.pets === "true");
-            var price = exhibit.price;
-            var sqft = exhibit.sqft;
-            var city = exhibit.city;
-            var zip = exhibit.zip;
-
-            console.log(exhibit);
-
-            Parse.initialize("OmsGMVVEXlyeH7ogBUCxYBYrhTxskALiSyUI3NQ4", "IxFoJ67sWnY97WVgFPSpesiXhccPLWEdrCs3EMuj");
-
-            var TestObject = Parse.Object.extend("Exhibits");
-          	var testObject = new TestObject();
-          	testObject.set("title", title);
-            testObject.set("location", location);
-            testObject.set("address", address);
-            testObject.set("city", city);
-            testObject.set("zip", zip);
-            testObject.set("sqft", parseInt(sqft));
-            testObject.set("price", parseInt(price));
-            testObject.set("beds", parseInt(beds));
-            testObject.set("baths", parseInt(baths));
-            // testObject.set("sphere", sphere);
-            testObject.set("pets", pets);
-            testObject.set("isPicture", true);
-
-          	testObject.save(null, {
-            	success: function(testObject) {
-              	// Execute any logic that should take place after the object is saved.
-              	console.log('New object created with objectId: ' + testObject.id);
-                console.log(testObject);
-                alert("Successfully added your location to our Exhibit collection!");
-            	},
-            	error: function(testObject, error) {
-              	// Execute any logic that should take place if the save fails.
-              	// error is a Parse.Error with an error code and message.
-              	console.log('Failed to create new object, with error code: ' + error.message);
-            	}
-          	});
-          }
         }])
 
 

@@ -6,6 +6,7 @@
 angular.module('starter',
     [
         'ionic',
+        'ngCordova',
         'app.controllers',
         'app.services',
         'user.controllers',
@@ -70,7 +71,7 @@ angular.module('starter',
                 views: {
                     'tab-upload': {
                         templateUrl: 'templates/tab-upload.html',
-                        controller: 'ListCtrl'
+                        controller: 'UploadController'
                     }
                 }
             })

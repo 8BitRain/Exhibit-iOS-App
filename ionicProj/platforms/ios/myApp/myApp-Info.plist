@@ -192,5 +192,7 @@
     <array>
       <string>UIInterfaceOrientationPortrait</string>
     </array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string/>
   </dict>
 </plist>
