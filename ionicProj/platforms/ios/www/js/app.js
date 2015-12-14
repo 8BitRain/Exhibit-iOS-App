@@ -177,9 +177,7 @@ angular.module('starter',
 
     function init() {
       scene = new THREE.Scene();
-      //Was 90 for first value and .001 for second value
       camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 1000);
-      //camera.position.set(0, 50, 0);
         camera.position.set(0, 0, 0);
 
       scene.add(camera);
@@ -194,9 +192,9 @@ angular.module('starter',
       // Our initial control fallback with mouse/touch events in case DeviceOrientation is not enabled
       controls = new THREE.OrbitControls(camera, element);
       controls.target.set(
-        camera.position.x + 0.000001,
+        camera.position.x,
         camera.position.y,
-        camera.position.z
+        camera.position.z + 0.000001
       );
       controls.noPan = true;
       controls.noZoom = true;
@@ -211,7 +209,7 @@ angular.module('starter',
         controls.connect();
         controls.update();
 
-        element.addEventListener('click', fullscreen, false);
+        element.addEventListener('click', fullscreen, true);
 
         window.removeEventListener('deviceorientation', setOrientationControls, true);
       }
@@ -224,21 +222,17 @@ angular.module('starter',
 
       //creating a sphere
 
-      //var urlSplit = sphereUrl.split('/');
       if(isPhoto){
         var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(128, 128, 64),
         new THREE.MeshPhongMaterial({
-          //map: THREE.ImageUtils.loadTexture(urlSplit[urlSplit.length - 1])
         map: THREE.ImageUtils.loadTexture(sphereUrl)
         })
         );
-        //sphere.position.set(5, 100, 0);
         sphere.position.set(0,0,0);
         sphere.scale.x = -1;
         scene.add(sphere);
-      }
-    else {
+      } else {
     ///////////
     // VIDEO //
     ///////////
@@ -249,12 +243,13 @@ angular.module('starter',
     // video.type = ' video/ogg; codecs="theora, vorbis" ';
     video.id = 'video';
     video.src = sphereUrl;
+    video.loop = true;
     video.setAttribute('webkit-playsinline', 'webkit-playsinline');
     video.load(); // must call after setting/changing source
 
     videoImage = document.createElement( 'canvas' );
-    videoImage.width = 3840;
-    videoImage.height = 2160;
+    videoImage.width = 1920;
+    videoImage.height = 1080;
 
     videoImageContext = videoImage.getContext( '2d' );
     // background color if no video present
@@ -268,13 +263,13 @@ angular.module('starter',
     var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side:THREE.DoubleSide } );
     // the geometry on which the movie will be displayed;
     //      movie image will be scaled to fit these dimensions.
-    var movieGeometry = new THREE.SphereGeometry(360, 360,360);
+    var movieGeometry = new THREE.SphereGeometry(360, 360, 360);
 
     var movieScreen = new THREE.Mesh(
         movieGeometry,
         movieMaterial );
 
-    movieScreen.position.set(0,50,0);
+    movieScreen.position.set(0,0,0);
     movieScreen.scale.x = -1;
     scene.add(movieScreen);
 
