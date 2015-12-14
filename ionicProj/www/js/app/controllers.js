@@ -110,7 +110,7 @@ angular.module('app.controllers', [])
             var isPicture = true;
             var beds = exhibit.beds;
             var baths = exhibit.baths;
-            var pets = true;
+            var pets = Boolean(exhibit.pets);
             var price = exhibit.price;
             var sqft = exhibit.sqft;
             var city = exhibit.city;
@@ -132,7 +132,7 @@ angular.module('app.controllers', [])
             testObject.set("beds", parseInt(beds));
             testObject.set("baths", parseInt(baths));
             // testObject.set("sphere", sphere);
-            testObject.set("pets", false);
+            testObject.set("pets", pets);
             testObject.set("isPicture", true);
 
           	testObject.save(null, {
@@ -146,9 +146,7 @@ angular.module('app.controllers', [])
               	console.log('Failed to create new object, with error code: ' + error.message);
             	}
           	});
-
           }
-
         }])
 
 
