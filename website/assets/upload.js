@@ -19,6 +19,7 @@ function uploadToServer(){
   var exhibit = {title: title, address: address, city: city, zip: zip, sqft: sqft, price: price,
                 beds: beds, baths: baths, sphere: sphere};
 
+
   //For debugging purposes:
   console.log(exhibit);
 
@@ -42,7 +43,8 @@ function uploadToServer(){
 	testObject.save(null, {
   	success: function(testObject) {
     	// Execute any logic that should take place after the object is saved.
-    	alert('New object created with objectId: ' + testObject.id);
+    	// alert('New object created with objectId: ' + testObject.id);
+      alert("We successfully added your Exhibit to our database!");
   	},
   	error: function(testObject, error) {
     	// Execute any logic that should take place if the save fails.
