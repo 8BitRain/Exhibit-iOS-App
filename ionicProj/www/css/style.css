@@ -23,3 +23,10 @@ cardboard-gl {
   height: 100%;
 }
 
+.platform-android .bar-subheader.has-tabs-top{
+  top:0px !important;
+}
+
+.platform-android .has-subheader.has-tabs-top{
+  top:93px;
+}
